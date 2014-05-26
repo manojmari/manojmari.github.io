@@ -11,6 +11,8 @@ var direction = {
     down: 4
 };
 
+var currentScore = 0;
+
 function Snake() {
     this.head = null;
     this.length = 0;
@@ -83,6 +85,7 @@ function fncBodyLoaded() {
     document.removeEventListener('keydown', fncInitEventBinding);
     document.addEventListener('keydown', fncInitEventBinding);
     fncGenerateBoost();
+    currentScore = 0;
 }
 function fncSetFocus(iSnakeId) {
     var currentSnake = snakeList[iSnakeId];
@@ -149,6 +152,7 @@ function fncInitEventBinding(event) {
             if (currentSnake.length >= 4) {
                 var oBlock = currentSnake.head;
                 var count = 0;
+                currentScore += currentSnake.length;
                 while (count != Math.ceil(currentSnake.length / 2) - 1) {
                     oBlock = oBlock.next;
                     count++;
@@ -271,6 +275,7 @@ function fncReconstruct() {
                     }
                     collisionCheck[oBlock.top][oBlock.left] = null;
                     fncGenerateBoost();
+                    currentScore++;
                 }
             }
 
@@ -290,6 +295,7 @@ function fncReconstruct() {
             oBlock = oBlock.next;
         }
     }
+    displayScore();
 }
 
 function getStyleAttr(elementId, attr) {
@@ -313,4 +319,8 @@ function fncGenerateBoost() {
     document.getElementById('divMainWindow').appendChild(boostHtml);
     boostHtml.style.top = (boostTop * boostHtml.offsetHeight) + "px";
     boostHtml.style.left = (boostLeft * boostHtml.offsetWidth) + "px";
+}
+
+function displayScore() {
+    document.getElementById("scoreContainer").innerHTML = currentScore;
 }
