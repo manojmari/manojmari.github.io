@@ -132,7 +132,13 @@ function fncInitEventBinding(event) {
             break;
         case 9:
             //tab
-            var newFocus = (currentActiveSnake + 1) >= snakeList.length ? 0 : currentActiveSnake + 1;
+            var newFocus;
+            if (event.shiftKey) {
+                newFocus = (currentActiveSnake - 1) < 0 ? snakeList.length - 1 : currentActiveSnake - 1;
+            }
+            else {
+                newFocus = (currentActiveSnake + 1) >= snakeList.length ? 0 : currentActiveSnake + 1;
+            }
             fncSetFocus(newFocus);
             break;
         case 32:
