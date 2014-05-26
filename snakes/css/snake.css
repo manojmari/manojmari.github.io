@@ -1,0 +1,32 @@
+﻿body {
+    background-color: #222930;
+}
+
+#divMainWindow {
+    background-color: #ADACAC;
+    border: 4px solid #FF5A09;
+    border-radius: 5px;
+    box-shadow: 10px 6px 8px #000000;
+    height: 300px;
+    width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.divBlock, .divBoost {
+    background-color: #B81D18;
+    border: 3px solid #004687;
+    height: 5px;
+    position: absolute;
+    width: 5px;
+}
+
+.divBoost {
+    background-color: #000;
+    border-color: #000;
+}
+.divBlockFocus
+{
+    outline: 1px solid yellow;
+
+}
