@@ -11,11 +11,13 @@
     width: 400px;
     position: relative;
     overflow: hidden;
+    margin: auto;
 }
 
 .divBlock, .divBoost {
     background-color: #B81D18;
     border: 3px solid #004687;
+    border-radius: 4px;
     height: 5px;
     position: absolute;
     width: 5px;
@@ -24,9 +26,9 @@
 .divBoost {
     background-color: #000;
     border-color: #000;
+    opacity: 0.8;
 }
-.divBlockFocus
-{
-    outline: 1px solid yellow;
 
+.divBlockFocus {
+    outline: 1px solid yellow;
 }

@@ -274,7 +274,7 @@ function fncReconstruct() {
                 oBlock.htmlElement.style.left = (oBlock.left * oBlock.htmlElement.offsetWidth) + "px";
             }
             else {
-                alert('collision!!!!' + oBlock.top + " " + oBlock.left);
+                alert('collision!!!!');
                 clearInterval(intervalId);
                 snakeList = new Array();
                 document.getElementById('divMainWindow').innerHTML = "";
