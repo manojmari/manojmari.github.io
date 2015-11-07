@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <groups>
+      <group id="kauvas" file="" />
+    </groups>
+   <friends>
+      <friend name="kaushik" group="kauvas" other="aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet">
+         <img file="" text="" />
+      </friend>
+
+      <friend name="Kiran Kannan" group="kauvas" >
+         <img file="" text="chodu" />
+      </friend>
+
+      <friend name="Atish" group="kauvas" >
+         <img file="" text="" />
+      </friend>
+
+      <friend name="Rakesh Lakshminarayanan" group="kauvas" >
+         <img file="" text="" />
+      </friend>
+
+      <friend name="Mahesh" group="kauvas" >
+         <img file="" text="" />
+      </friend>
+   </friends>
+</root>

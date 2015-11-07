@@ -1,0 +1,54 @@
+body{
+	background-image:url('../data/images/background.png');
+	background-repeat:repeat;
+}
+
+.form-signin{
+	width: 500px;
+	margin: auto;
+	margin-top: 100px;
+}
+
+.form-signin-heading{
+    color: white;
+    text-align: center;
+}
+
+#inputName, #nameSubmit{
+	margin-top: 20px;
+}
+
+.abc{
+	color: #3e6d8e;
+    font-size: 12px;
+    white-space: nowrap;
+    background: #e4edf4;
+    border: 1px solid #e4edf4;
+    display: inline-block;
+    margin: 2px 12px 7px 0px;
+    border-radius: 0;
+    -webkit-transition: color 0.15s ease, background 0.15s ease, border 0.15s ease;
+    -moz-transition: color 0.15s ease, background 0.15s ease, border 0.15s ease;
+    -ms-transition: color 0.15s ease, background 0.15s ease, border 0.15s ease;
+    -o-transition: color 0.15s ease, background 0.15s ease, border 0.15s ease;
+}
+
+.didYouMean{
+	margin: auto;
+    margin-top: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#warningContainer{
+    width: 520px;
+    margin: auto;
+    border: 2px dotted;
+    padding: 13px;
+    margin-top: 36px;
+    border-radius: 14px;
+    border-color: darkslategray;
+}
