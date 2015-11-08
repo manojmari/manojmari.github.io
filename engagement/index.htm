@@ -23,14 +23,42 @@
 	        <input id="inputName" class="form-control" placeholder="Name" required autofocus>
 	        <button id="nameSubmit" class="btn btn-lg btn-primary btn-block" type="submit">Enter</button>
 	      </form>
-<div id="warningContainer" style="display:none">
-<div id="warning" class="alert alert-warning didYouMean">Did you mean?</div>
-<div id="suggestions" class="btn-group" role="group" aria-label="First group">
+        </div>
+        <div id="warningContainer" style="display:none">
+            <div id="warning" class="alert alert-warning didYouMean">Did you mean?</div>
+            <div id="suggestions" class="btn-group" role="group" aria-label="First group">
         
-      </div>
-      </div>
-
-	    </div>
+            </div>
+        </div>
 	</div>
+
+    <div id="dragDrop" style="display:none;position:absolute;height:100%;width:100%;overflow:hidden;">
+        <div class="" style="position:absolute;height:100%;width:100%">
+                <div id="draggableContainer" style="height: 100%;width: 270px;padding-left: 50px;padding-top: 50px;"></div>
+                <div id="dragDropResult" style="height: 100%; width: 270px; padding-left: 22px; padding-top: 90px;padding-right: 22px;display:none;">
+                    <div id="dragResultText" class="alert alert-warning">
+                </div>
+                </div>
+            <div id="dragDropContainer" style="margin-left:347px;margin-top:87px;">
+                <div style="
+    background-image: url('data/images/frame.png');
+    height: 566px;
+    width: 566px;
+    margin-top: -112px;
+    margin-left: -100px;
+    background-size: 100% 100%;
+"></div>
+                <div id="referenceTiles"></div>
+                <div id="droppableArea"></div>
+                <div id="draggableResultContainer">
+                    <div id="imageShow">
+                        <div id="leftNav"><</div>
+                        <div id="rightNav">></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

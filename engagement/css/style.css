@@ -1,6 +1,20 @@
 body{
 	background-image:url('../data/images/background.png');
 	background-repeat:repeat;
+    font-family:fantasy;
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ui-menu-item{
+    font-family:monospace;
 }
 
 .form-signin{
@@ -20,7 +34,7 @@ body{
 
 .abc{
 	color: #3e6d8e;
-    font-size: 12px;
+    font-size: 17px;
     white-space: nowrap;
     background: #e4edf4;
     border: 1px solid #e4edf4;
@@ -51,4 +65,96 @@ body{
     margin-top: 36px;
     border-radius: 14px;
     border-color: darkslategray;
+}
+
+#dragDropContainer{
+    height:450px;
+    width:450px;
+    margin: auto;
+    margin-top: 100px;
+    background-image: url('..data/images/frame.png');
+    background-size: 100% 100%;
+    padding: 57px 45px;
+    position: relative;
+}
+
+.tiles{
+    background-size:450px 450px;
+    height:187px;
+    width:187px;
+    position: absolute;
+}
+#draggableContainer, #dragDropResult{
+    position: absolute; 
+    background-image: -webkit-linear-gradient(left, rgb(96, 108, 136), rgb(63, 76, 107));
+    background-color: rgb(255, 255, 255);
+    border-bottom: 2px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#dragDropResult{
+    background-image: -webkit-linear-gradient(left, rgb(100, 145, 115), rgb(219, 213, 164));
+}
+
+#draggableResultContainer, #referenceTiles{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#dragDropContainer{
+        opacity: 1;
+    background-image: -webkit-linear-gradient(left, rgb(167, 55, 55), rgb(122, 40, 40));
+    background-color: rgb(255, 255, 255);
+}
+
+.positionRelative{
+    position: relative;
+    cursor: pointer;
+    margin-bottom:5px;
+}
+
+.abc:hover{
+    background-color: black;
+}
+
+#warningContainer{
+    font-family:cursive;
+}
+
+#imageShow{
+    height: 450px;
+    width: 450px;
+    z-index: 30;
+    position: absolute;
+    display: none
+}
+
+#leftNav, #rightNav{
+    position: absolute;
+    height:100%;
+    background-color:black;
+    opacity: 0.4;
+    width: 40px;
+    z-index: 3;
+    color: aliceblue;
+    padding-left: 10px;
+    padding-top: 42%;
+    font-size:40px;
+    font-family:-webkit-pictograph;
+}
+
+#leftNav{
+    left: 0px;
+}
+#rightNav{
+    right:0px;
+}
+.imgShow_imgs{
+    height:100%;
+    width:100%;
+    display: none;
+    position: absolute;
 }
