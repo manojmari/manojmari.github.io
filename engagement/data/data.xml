@@ -31,4 +31,13 @@
       <audio id="heisen" url="heisen" repeat="false" start="1"/>
       <audio id="sym" url="symphony" />
    </audios>
+   <images>
+      <img file="curtain.jpg" />
+      <img file="fold_curtain.jpg" />
+      <img file="fold_curtain.png" />
+      <img file="frame.png" />
+      <img file="intro.jpg" />
+      <img file="rope.png" />
+      <img file="walter.png" />
+   </images>
 </root>

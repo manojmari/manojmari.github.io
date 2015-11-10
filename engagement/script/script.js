@@ -15,16 +15,20 @@ function loadXmlAndContinue(){
         createGroups($(xml).find('groups').children());
         createFriends($(xml).find('friends').children());
         loadMp3($(xml).find('audios').children());
-        loadInteractive();
-        playSound('sym');
-		$('#rope').click(function(){
-			$('#rope').slideUp();
-			$('#curtain').animate({height: "80%"}, 4000, function(){
-				$('#curtain').animate({height: "0%"}, 2000, function(){});
-				playSound('baba');
-			})
-			console.log('hello')
-		});
+        var arrImages = getPreloaderImages($(xml).find('images').children());
+        console.log(arrImages)
+        preloadImages(arrImages,function(){
+	        loadInteractive();
+	        playSound('sym');
+			$('#rope').click(function(){
+				$('#rope').slideUp();
+				$('#curtain').animate({height: "80%"}, 4000, function(){
+					$('#curtain').animate({height: "0%"}, 2000, function(){});
+					playSound('baba');
+				})
+				console.log('hello')
+			});
+        });
 	}
 	});
 }
@@ -243,6 +247,13 @@ function shuffle(array) {
   return array;
 }
 
+function getPreloaderImages(images){
+	var arrGroup = [];
+	images.each(function(){
+  		arrGroup.push(renderAttributes(this));
+	})
+	return arrGroup;
+}
 
 function loadMp3(audios){
 	var arrGroup = [];
@@ -266,4 +277,23 @@ function playSound(audioId){
 		currentAudio.audio.play();
 		audios.current = audioId;
 	}
+}
+
+function preloadImages(arrImages, callback){
+	$('#mainBody').hide();
+	$('#preloader').show();
+	if(_.isEmpty(arrImages)){
+		$('#mainBody').show();
+		$('#preloader').hide();
+		return callback();
+	}
+
+	var currentImg = arrImages.pop();
+	console.log(currentImg)
+	console.log(arrImages)
+	var x = document.createElement('img');
+	x.onload = function(){
+		preloadImages(arrImages, callback);
+	}
+	x.src = 'data/images/' + currentImg.file;
 }

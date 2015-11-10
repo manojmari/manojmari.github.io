@@ -264,3 +264,15 @@ body {
     margin: auto;
     margin-top: 158px;
 }
+
+#preloader{
+    height:100%;
+    width:100%;
+    display: table;
+    position: absolute;
+}
+
+#preloader img{
+    margin: auto;
+    display: table-cell;
+}
