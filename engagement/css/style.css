@@ -13,6 +13,62 @@ body {
     user-select: none;
 }
 
+.box6{
+    margin: 20px auto;
+    width: 300px;
+    min-height: 150px;
+    padding: 10px;
+    position:relative;
+    background: -webkit-gradient(linear, 0% 20%, 0% 92%, from(#fff), to(#f3f3f3), color-stop(.1,#fff));
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    -webkit-border-top-left-radius: 60px 5px;
+    -webkit-border-top-right-radius: 60px 5px;
+    -webkit-border-bottom-right-radius: 60px 60px ;
+    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3) ;
+    
+}
+
+.box6:before{
+    content:'';    
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    bottom:0;
+    right:0;
+    -webkit-border-bottom-right-radius: 30px;
+    -webkit-box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.3);
+    -webkit-transform:
+    rotate(-20deg)
+    skew(-40deg,-3deg)
+    translate(-13px,-13px);
+}
+
+.box6:after{
+    content: '';
+    z-index: -10;
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    bottom:0;
+    right:0;
+    background: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    -webkit-box-shadow: 20px 20px 8px rgba(0, 0, 0, 0.2);
+    -webkit-transform: rotate(0deg)
+                        translate(-45px,-20px)
+                           skew(20deg);
+}
+
+.frame{
+    height: 566px;
+    width: 566px;
+    margin-top: -112px;
+    margin-left: -100px;
+    background-size: 100% 100%;
+}
+
 .ui-menu-item{
     font-family:monospace;
 }
@@ -34,7 +90,7 @@ body {
 
 .abc{
 	color: #3e6d8e;
-    font-size: 17px;
+    font-size: 15px;
     white-space: nowrap;
     background: #e4edf4;
     border: 1px solid #e4edf4;
@@ -141,7 +197,7 @@ body {
     z-index: 3;
     color: aliceblue;
     padding-left: 10px;
-    padding-top: 42%;
+    padding-top: 46%;
     font-size:40px;
     font-family:-webkit-pictograph;
 }
@@ -157,4 +213,54 @@ body {
     width:100%;
     display: none;
     position: absolute;
+}
+
+#warning{
+    color: darkgray;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 20px solid white;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 20px solid white;
+}
+
+#intro{
+    position:absolute;
+    height:100%;
+    width:100%;
+}
+
+#backCurtain, #curtain{
+    position:absolute;
+    height:100%;
+    width:100%;
+    background-size:100% 100%;
+}
+
+#rope{
+    height: 320px;
+    width: 118px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#stupidPhoto{
+        z-index: 10;
+    height: 350px;
+    width: 615px;
+    margin: auto;
+    margin-top: 158px;
 }

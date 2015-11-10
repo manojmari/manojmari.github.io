@@ -14,7 +14,16 @@
     <link href="lib/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 </head>
 <body>
-	<div id="user-info">
+
+    <div id="intro">
+        <div id="backCurtain" style="background-image:url('data/images/curtain.jpg')">
+            <div id="stupidPhoto" style="background-image:url('data/images/intro.jpg')"></div>
+        </div>
+        <div id="curtain"  style="background-image:url('data/images/fold_curtain.png');height:95%"></div>
+        <div id="rope" style="background-image:url('data/images/rope.png');"></div>
+    </div>
+
+	<div id="user-info" style="display:none">
 		<div class="container">
 
 	      <form class="form-signin">
@@ -25,7 +34,7 @@
 	      </form>
         </div>
         <div id="warningContainer" style="display:none">
-            <div id="warning" class="alert alert-warning didYouMean">Did you mean?</div>
+            <div id="warning" class="">Did you mean?</div>
             <div id="suggestions" class="btn-group" role="group" aria-label="First group">
         
             </div>
@@ -40,20 +49,13 @@
                 </div>
                 </div>
             <div id="dragDropContainer" style="margin-left:347px;margin-top:87px;">
-                <div style="
-    background-image: url('data/images/frame.png');
-    height: 566px;
-    width: 566px;
-    margin-top: -112px;
-    margin-left: -100px;
-    background-size: 100% 100%;
-"></div>
+                <div class="box6 frame" style="background-image: url('data/images/frame1.png');"></div>
                 <div id="referenceTiles"></div>
                 <div id="droppableArea"></div>
                 <div id="draggableResultContainer">
                     <div id="imageShow">
-                        <div id="leftNav"><</div>
-                        <div id="rightNav">></div>
+                        <div id="leftNav"><div class="arrow-left"></div></div>
+                        <div id="rightNav"><div class="arrow-right"></div></div>
                     </div>
                 </div>
             </div>

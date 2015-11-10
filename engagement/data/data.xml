@@ -26,4 +26,9 @@
          <img file="" text="" />
       </friend>
    </friends>
+   <audios>
+      <audio id="baba" url="baba" />
+      <audio id="heisen" url="heisen" repeat="false" start="1"/>
+      <audio id="sym" url="symphony" />
+   </audios>
 </root>

@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	loadXmlAndContinue();
 	$('#inputName').focus();
+	
 });
 
 function loadXmlAndContinue(){
@@ -13,8 +14,18 @@ function loadXmlAndContinue(){
         $(document).data('xml', xml);
         createGroups($(xml).find('groups').children());
         createFriends($(xml).find('friends').children());
+        loadMp3($(xml).find('audios').children());
         loadInteractive();
-    }
+        playSound('sym');
+		$('#rope').click(function(){
+			$('#rope').slideUp();
+			$('#curtain').animate({height: "80%"}, 4000, function(){
+				$('#curtain').animate({height: "0%"}, 2000, function(){});
+				playSound('baba');
+			})
+			console.log('hello')
+		});
+	}
 	});
 }
 
@@ -230,4 +241,29 @@ function shuffle(array) {
   }
 
   return array;
+}
+
+
+function loadMp3(audios){
+	var arrGroup = [];
+	audios.each(function(){
+		var currentAudio = renderAttributes(this);
+		currentAudio.audio = document.createElement('audio');
+		currentAudio.audio.src = 'data/audio/' + currentAudio.url + '.mp3';
+  		arrGroup.push(currentAudio);
+	})
+	$(document).data('audios', arrGroup);
+}
+
+function playSound(audioId){
+	var audios = $(document).data('audios');
+	var playingAudio = _.find(audios, {id:audios.current});
+	if(playingAudio != null)
+		playingAudio.audio.pause();
+	var currentAudio = _.find(audios, {id:audioId});
+	if(currentAudio != null){
+		currentAudio.audio.currentTime = currentAudio.start ? parseInt(currentAudio.start) : 0;
+		currentAudio.audio.play();
+		audios.current = audioId;
+	}
 }
