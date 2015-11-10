@@ -29,7 +29,7 @@
    <audios>
       <audio id="baba" url="baba" />
       <audio id="heisen" url="heisen" repeat="false" start="1"/>
-      <audio id="sym" url="symphony" />
+      <audio id="sym" url="symphony" start="20"/>
    </audios>
    <images>
       <img file="curtain.jpg" />
