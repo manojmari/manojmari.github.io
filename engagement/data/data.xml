@@ -2,12 +2,215 @@
 <root>
     <groups>
       <group id="kauvas" file="kauvas.jpg" />
+      <group id="purva" file="purva.jpg" />
+      <group id="lonavala" file="lonavala.jpg" />
+      <group id="steps" file="steps.jpg" />
+      <group id="ILP" file="ILP.jpg" />
+      <group id="jags" file="jags.jpg" />
+       <group id="Hydbad" file="Hydbad.jpg" />
+       <group id="extc" file="extc.jpg" />
     </groups>
    <friends>
       <friend name="kaushik" group="kauvas" other="aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet">
          <img file="kauva.jpg" text="" />
          <img file="kauva_0.jpg" text="" />
          <img file="kauva_1.jpg" text="" />
+      </friend>
+
+      <friend name="Purva" group="purva">
+         <img file="purva_0.jpg" text="" />
+         <img file="purva_1.jpg" text="" />
+         <img file="purva_2.jpg" text="" />
+         <img file="purva_3.jpg" text="" />
+         <img file="purva_4.jpg" text="" />
+         <img file="purva_5.jpg" text="" />
+         <img file="purva_6.jpg" text="" />
+      </friend>
+
+      <friend name="Ganesh" group="purva">
+         <img file="ganesh_0.jpg" text="" />
+         <img file="ganesh_1.jpg" text="" />
+         <img file="ganesh_2.jpg" text="" />
+         <img file="ganesh_3.jpg" text="" />
+         <img file="ganesh_4.jpg" text="" />
+         <img file="ganesh_5.jpg" text="" />
+      </friend>
+
+
+      <friend name="Spandana" group="purva">
+         <img file="spanda_0.jpg" text="" />
+         <img file="spanda_1.jpg" text="" />
+         <img file="spanda_2.jpg" text="" />
+         <img file="spanda_3.jpg" text="" />
+         <img file="spanda_4.jpg" text="" />
+         <img file="spanda_5.jpg" text="" />
+         <img file="spanda_6.jpg" text="" />
+      </friend>
+
+      <friend name="Bala" group="lonavala">
+         <img file="bala_0.jpg" text="" />
+         <img file="bala_1.jpg" text="" />
+         <img file="bala_2.jpg" text="" />
+         <img file="bala_3.jpg" text="" />
+         <img file="bala_4.jpg" text="" />
+      </friend>
+
+      <friend name="Samaresh" group="steps">
+         <img file="chammu_0.jpg" text="" />
+         <img file="chammu_1.jpg" text="" />
+         <img file="chammu_2.jpg" text="" />
+         <img file="chammu_3.jpg" text="" />
+         <img file="chammu_4.jpg" text="" />
+         <img file="chammu_5.jpg" text="" />
+      </friend>
+
+      <friend name="Disha" group="ILP">
+         <img file="disha_0.jpg" text="" />
+         <img file="disha_1.jpg" text="" />
+         <img file="disha_2.jpg" text="" />
+         <img file="disha_3.jpg" text="" />
+         <img file="disha_4.jpg" text="" />
+      </friend>
+
+      <friend name="Rohan Iyer" group="lonavala">
+         <img file="iyer_0.jpg" text="" />
+         <img file="iyer_1.jpg" text="" />
+         <img file="iyer_2.jpg" text="" />
+         <img file="iyer_3.jpg" text="" />
+         <img file="iyer_4.jpg" text="" />
+         <img file="iyer_5.jpg" text="" />
+      </friend>
+
+      <friend name="Jagruti" group="jags">
+         <img file="jags_0.jpg" text="" />
+         <img file="jags_1.jpg" text="" />
+         <img file="jags_2.jpg" text="" />
+         <img file="jags_3.jpg" text="" />
+         <img file="jags_4.jpg" text="" />
+      </friend>
+
+      <friend name="Kedar" group="steps">
+         <img file="kedar_0.jpg" text="" />
+         <img file="kedar_1.jpg" text="" />
+         <img file="kedar_2.jpg" text="" />
+         <img file="kedar_3.jpg" text="" />
+         <img file="kedar_4.jpg" text="" />
+         <img file="kedar_5.jpg" text="" />
+      </friend>
+
+      <friend name="Keshav" group="Hydbad">
+         <img file="keshav_0.jpg" text="" />
+         <img file="keshav_1.jpg" text="" />
+         <img file="keshav_2.jpg" text="" />
+         <img file="keshav_3.jpg" text="" />
+         <img file="keshav_4.jpg" text="" />
+         <img file="keshav_5.jpg" text="" />
+      </friend>
+
+      <friend name="Shruti" group="extc">
+         <img file="kutty_0.jpg" text="" />
+         <img file="kutty_1.jpg" text="" />
+         <img file="kutty_2.jpg" text="" />
+         <img file="kutty_3.jpg" text="" />
+         <img file="kutty_4.jpg" text="" />
+         <img file="kutty_5.jpg" text="" />
+         <img file="kutty_6.jpg" text="" />
+      </friend>
+
+      <friend name="Prathitha" group="extc">
+         <img file="prat_0.jpg" text="" />
+         <img file="prat_1.jpg" text="" />
+         <img file="prat_2.jpg" text="" />
+         <img file="prat_3.jpg" text="" />
+         </friend>
+
+         <friend name="Pritam" group="ILP">
+         <img file="pritam_0.jpg" text="" />
+         <img file="pritam_1.jpg" text="" />
+         <img file="pritam_2.jpg" text="" />
+         <img file="pritam_3.jpg" text="" />
+         <img file="pritam_4.jpg" text="" />
+         <img file="pritam_5.jpg" text="" />
+         <img file="pritam_6.jpg" text="" />
+      </friend>
+
+      <friend name="Radhika" group="extc">
+         <img file="rad_0.jpg" text="" />
+         <img file="rad_1.jpg" text="" />
+         <img file="rad_2.jpg" text="" />
+         <img file="rad_3.jpg" text="" />
+         <img file="rad_4.jpg" text="" />
+         <img file="rad_5.jpg" text="" />
+         <img file="rad_6.jpg" text="" />
+      </friend>
+
+<friend name="Shweta" group="steps">
+         <img file="shweta_0.jpg" text="" />
+         <img file="shweta_1.jpg" text="" />
+         <img file="shweta_2.jpg" text="" />
+         <img file="shweta_3.jpg" text="" />
+         <img file="shweta_4.jpg" text="" />
+         <img file="shweta_5.jpg" text="" />
+      </friend>
+
+<friend name="Vivek" group="Hydbad">
+         <img file="torres_1.jpg" text="" />
+         <img file="torres_2.jpg" text="" />
+         <img file="torres_3.jpg" text="" />
+         <img file="torres_4.jpg" text="" />
+         <img file="torres_5.jpg" text="" />
+         <img file="torres_6.jpg" text="" />
+      </friend>
+
+       <friend name="Venkat" group="extc">
+         <img file="venkat_0.jpg" text="" />
+         <img file="venkat_1.jpg" text="" />
+         <img file="venkat_2.jpg" text="" />
+            </friend>
+
+             <friend name="Prashant" group="ILP">
+         <img file="pakya_0.jpg" text="" />
+         <img file="pakya_1.jpg" text="" />
+         <img file="pakya_2.jpg" text="" />
+            </friend>
+
+<friend name="Kaustubh" group="lonavala">
+         <img file="kl_0.jpg" text="" />
+         <img file="kl_1.jpg" text="" />
+         <img file="kl_2.jpg" text="" />
+         <img file="kl_3.jpg" text="" />
+         <img file="kl_4.jpg" text="" />
+         <img file="kl_5.jpg" text="" />
+         <img file="kl_6.jpg" text="" />
+      </friend>
+
+
+      <friend name="Rohan Krishna" group="lonavala">
+         <img file="krshna_0.jpg" text="" />
+         <img file="krshna_1.jpg" text="" />
+         <img file="krshna_2.jpg" text="" />
+         <img file="krshna_3.jpg" text="" />
+         <img file="krshna_4.jpg" text="" />
+         <img file="krshna_5.jpg" text="" />
+         <img file="krshna_6.jpg" text="" />
+      </friend>
+
+       <friend name="Rajkiran" group="lonavala">
+         <img file="raju_0.jpg" text="" />
+         <img file="raju_1.jpg" text="" />
+         <img file="raju_2.jpg" text="" />
+         <img file="raju_3.jpg" text="" />
+         <img file="raju_4.jpg" text="" />
+         <img file="raju_5.jpg" text="" />
+      </friend>
+
+      <friend name="Ramu" group="lonavala">
+         <img file="ramu_0.jpg" text="" />
+         <img file="ramu_1.jpg" text="" />
+         <img file="ramu_2.jpg" text="" />
+         <img file="ramu_3.jpg" text="" />
+         <img file="ramu_4.jpg" text="" />
+         <img file="ramu_5.jpg" text="" />
       </friend>
 
       <friend name="Kiran Kannan" group="kauvas" >
