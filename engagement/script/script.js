@@ -25,9 +25,14 @@ function loadXmlAndContinue(){
 				$('#curtain').animate({height: "80%"}, 4000, function(){
 					$('#curtain').animate({height: "0%"}, 2000, function(){});
 					playSound('baba');
+        			$('#curtainNext').show();
 				})
-				console.log('hello')
 			});
+        });
+        $('#curtainNext').click(function(){
+        	playSound('');
+        	$('#intro').hide();
+        	$('#user-info').show();
         });
 	}
 	});
@@ -54,7 +59,6 @@ function submitName(event){
 		friend = _.find(friends, function(curr){
 			return curr.name.toLowerCase() == name.toLowerCase()
 		});
-console.log(friends)
 	if(friend == undefined)
 		return noSuchFriend();
 
@@ -70,7 +74,6 @@ console.log(friends)
 		return '<button type="button" class="abc">' + currentName + '</button>';
 	}).join('');
         
-	console.log(htmlSuggestions)
 	$('#suggestions').html(htmlSuggestions);
 	$('#warning').html("Did you mean?");
 	$('#warningContainer').fadeIn();
@@ -122,7 +125,6 @@ function loadDragDrop(name){
 			referenceHtml += "<img class='tiles droppables'  dropId="+i+j+" style='top:" + (i * 150) + "px;left:" + (j * 150) + "px' src='data/svg/" + i + j + ".svg' />"
 		}	
 	}
-	console.log(puzzleHtml)
 	$('#draggableContainer').html(puzzleHtml);
 	$('#referenceTiles').html(referenceHtml);
 	var draggablePieces = $('.puzzlePiece').css("background-image", "url('data/images/" + group.file + "')").draggable({
@@ -170,13 +172,10 @@ function loadDragDrop(name){
 function showLeft(){
 	var prevIndex = $('#imageShow').data('current');
 	var maxIndex = $('#imageShow').data('maxIndex');
-	console.log(prevIndex)
 
 	var currentIndex = prevIndex - 1
 	if(currentIndex == -1)
 		currentIndex = maxIndex - 1;
-	console.log(currentIndex)
-	console.log(maxIndex)
 	$('#img_' + prevIndex).hide("slide", { direction: "right" }, 300, function(){
 	});
 		$('#img_' + currentIndex).show("slide", { direction: "left" }, 300);
@@ -190,8 +189,6 @@ function showRight(){
 	var currentIndex = prevIndex + 1
 	if(currentIndex == maxIndex)
 		currentIndex = 0;
-	console.log(currentIndex)
-	console.log(maxIndex)
 	$('#img_' + prevIndex).hide("slide", { direction: "left" }, 300, function(){
 	});
 		$('#img_' + currentIndex).show("slide", { direction: "right" }, 300);
@@ -219,7 +216,6 @@ function createFriends(friends){
 	friends.each(function(){
 		var currentFriend = renderAttributes(this);
 		currentFriend['images'] = [];
-		console.log($(this).children())
 		$(this).children().each(function(){
 			currentFriend.images.push(renderAttributes(this));
 		});
@@ -289,8 +285,6 @@ function preloadImages(arrImages, callback){
 	}
 
 	var currentImg = arrImages.pop();
-	console.log(currentImg)
-	console.log(arrImages)
 	var x = document.createElement('img');
 	x.onload = function(){
 		preloadImages(arrImages, callback);
