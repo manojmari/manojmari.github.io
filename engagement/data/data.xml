@@ -9,6 +9,8 @@
       <group id="jags" file="jags.jpg" />
        <group id="Hydbad" file="Hydbad.jpg" />
        <group id="extc" file="extc.jpg" />
+       <group id="football" file="football.jpg" />
+         <group id="match" file="match.jpg" />
     </groups>
    <friends>
       <friend name="kaushik" group="kauvas" other="aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet">
@@ -212,6 +214,44 @@
          <img file="ramu_4.jpg" text="" />
          <img file="ramu_5.jpg" text="" />
       </friend>
+
+       <friend name="Ritika" group="football">
+         <img file="ritz_0.jpg" text="" />
+         <img file="ritz_1.jpg" text="" />
+         <img file="ritz_2.jpg" text="" />
+         <img file="ritz_3.jpg" text="" />
+         <img file="ritz_4.jpg" text="" />
+         <img file="ritz_5.jpg" text="" />
+      </friend>
+
+<friend name="Vibhuti" group="football">
+         <img file="vibs_1.jpg" text="" />
+         <img file="vibs_2.jpg" text="" />
+         <img file="vibs_3.jpg" text="" />
+         <img file="vibs_4.jpg" text="" />
+         <img file="vibs_5.jpg" text="" />
+               <img file="vibs_6.jpg" text="" />
+      </friend>
+
+ <friend name="Sanmit" group="match">
+         <img file="sonu_0.jpg" text="" />
+         <img file="sonu_1.jpg" text="" />
+         <img file="sonu_2.jpg" text="" />
+         <img file="sonu_3.jpg" text="" />
+         <img file="sonu_4.jpg" text="" />
+    
+      </friend>
+
+      <friend name="Nandeep" group="match">
+         <img file="nandy_0.jpg" text="" />
+         <img file="nandy_1.jpg" text="" />
+         <img file="nandy_2.jpg" text="" />
+         <img file="nandy_3.jpg" text="" />
+         <img file="nandy_4.jpg" text="" />
+          <img file="nandy_5.jpg" text="" />
+    
+      </friend>
+
 
       <friend name="Kiran Kannan" group="kauvas" >
          <img file="" text="chodu" />
