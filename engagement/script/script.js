@@ -213,6 +213,15 @@ function loadAlbum(){
 	$('#imageShow').data('current', 0)
 }
 
+function animateImg(){
+	$('#imgMain').stop(true,false)[0].style.height ="";
+	var ht = $('#imgMain').height();
+	console.log(wid)
+	$('#imgMain').css('height',0).animate({'height':ht+'px'},200, function(){
+		$('#imgMain')[0].style.height= "";
+	})
+}
+
 function showLeft(){
 	var friend = $(document).data('friend');
 	var prevIndex = $('#imageShow').data('current');
@@ -230,6 +239,7 @@ function showLeft(){
 		$('#img_' + currentIndex).show("slide", { direction: "left" }, 300);
 	$('#imageShow').data({'current': currentIndex});
 	*/
+	animateImg();
 }
 
 function showRight(){
@@ -249,6 +259,7 @@ function showRight(){
 		$('#img_' + currentIndex).show("slide", { direction: "right" }, 300);
 	$('#imageShow').data({'current': currentIndex});
 	*/
+	animateImg();
 }
 
 function renderAttributes(oThis){
