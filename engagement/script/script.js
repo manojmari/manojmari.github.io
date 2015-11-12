@@ -230,6 +230,7 @@ function showLeft(){
 	if(currentIndex == -1)
 		currentIndex = maxIndex - 1;
 	
+	$('#imgMain')[0].onload = animateImg;
 	$('#imgMain').attr('src', 'data/images/' + friend.images[currentIndex].file);
 	$('#imageShow').data('current', currentIndex)
 
@@ -238,7 +239,7 @@ function showLeft(){
 		$('#img_' + currentIndex).show("slide", { direction: "left" }, 300);
 	$('#imageShow').data({'current': currentIndex});
 	*/
-	animateImg();
+	//();
 }
 
 function showRight(){
@@ -250,6 +251,7 @@ function showRight(){
 	if(currentIndex == maxIndex)
 		currentIndex = 0;	
 
+	$('#imgMain')[0].onload = animateImg;
 	$('#imgMain').attr('src', 'data/images/' + friend.images[currentIndex].file);
 	$('#imageShow').data('current', currentIndex)
 	/*
@@ -258,7 +260,7 @@ function showRight(){
 		$('#img_' + currentIndex).show("slide", { direction: "right" }, 300);
 	$('#imageShow').data({'current': currentIndex});
 	*/
-	animateImg();
+	//animateImg();
 }
 
 function renderAttributes(oThis){
