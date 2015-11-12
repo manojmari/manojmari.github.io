@@ -214,12 +214,11 @@ function loadAlbum(){
 }
 
 function animateImg(){
-	$('#imgMain').stop(true,false)[0].style.height ="";
-	var ht = $('#imgMain').height();
-	console.log(ht)
-	$('#imgMain').css('height',0).animate({'height':ht+'px'},200, function(){
-		$('#imgMain')[0].style.height= "";
-	})
+var wid = $('#imgMain').width();
+console.log(wid)
+$('#imgMain').css('width',0).animate({'width':wid+'px'},200, function(){
+$('#imgMain')[0].style.width= "";
+})
 }
 
 function showLeft(){
