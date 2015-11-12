@@ -216,7 +216,7 @@ function loadAlbum(){
 function animateImg(){
 	$('#imgMain').stop(true,false)[0].style.height ="";
 	var ht = $('#imgMain').height();
-	console.log(wid)
+	console.log(ht)
 	$('#imgMain').css('height',0).animate({'height':ht+'px'},200, function(){
 		$('#imgMain')[0].style.height= "";
 	})
