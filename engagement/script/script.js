@@ -184,7 +184,7 @@ function startWalter(){
 	$('#album').fadeIn(function(){
 		playSound('walter', endWalter);
 	});
-	$('#imgMain').css({'max-height':$('#album_table').height(), 'max-width':$('#album_table').width()})
+	$('#imgMain').css({'max-height':($('#album_table').height()-100), 'max-width':$('#album_table').width()})
 	$('#imgMain').attr('src', 'data/images/walter.png');
 	$('#imgMain').addClass('walterNoBorder');
 	
