@@ -42,7 +42,7 @@
       <friend name="Spandana" group="purva">
          <img file="spanda_0.jpg" text="" />
          <img file="spanda_1.jpg" text="" />
-         <img file="spanda_2.jpg" text="" />
+         <img file="spanda_2.png" text="" />
          <img file="spanda_3.jpg" text="" />
          <img file="spanda_4.jpg" text="" />
          <img file="spanda_5.jpg" text="" />
@@ -93,9 +93,9 @@
 
       <friend name="Kedar" group="steps">
          <img file="kedar_0.jpg" text="" />
-         <img file="kedar_1.jpg" text="" />
+         <img file="kedar_1.png" text="" />
          <img file="kedar_2.jpg" text="" />
-         <img file="kedar_3.jpg" text="" />
+         <img file="kedar_3.png" text="" />
          <img file="kedar_4.jpg" text="" />
          <img file="kedar_5.jpg" text="" />
       </friend>
@@ -137,7 +137,7 @@
       </friend>
 
       <friend name="Radhika" group="extc">
-         <img file="rad_0.jpg" text="" />
+         <img file="rad_0.png" text="" />
          <img file="rad_1.jpg" text="" />
          <img file="rad_2.jpg" text="" />
          <img file="rad_3.jpg" text="" />
@@ -271,7 +271,7 @@
    </friends>
    <audios>
       <audio id="baba" url="baba" />
-      <audio id="heisen" url="heisen" repeat="false" start="1"/>
+      <audio id="walter" url="heisen" repeat="false" start="2"/>
       <audio id="sym" url="symphony" start="20"/>
    </audios>
    <images>
@@ -282,5 +282,14 @@
       <img file="intro.jpg" />
       <img file="rope.png" />
       <img file="walter.png" />
+      <img file="00.svg" />
+      <img file="01.svg" />
+      <img file="02.svg" />
+      <img file="10.svg" />
+      <img file="11.svg" />
+      <img file="12.svg" />
+      <img file="20.svg" />
+      <img file="21.svg" />
+      <img file="22.svg" />
    </images>
 </root>

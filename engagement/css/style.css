@@ -13,21 +13,25 @@ body {
     user-select: none;
 }
 
-.box6{
-    margin: 20px auto;
-    width: 300px;
-    min-height: 150px;
-    padding: 10px;
-    position:relative;
-    background: -webkit-gradient(linear, 0% 20%, 0% 92%, from(#fff), to(#f3f3f3), color-stop(.1,#fff));
-    border-top: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    -webkit-border-top-left-radius: 60px 5px;
-    -webkit-border-top-right-radius: 60px 5px;
-    -webkit-border-bottom-right-radius: 60px 60px ;
-    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3) ;
-    
+.box6 {
+    background-color: darkslategray;
+  -webkit-box-shadow:
+            0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 14px #fff,
+                0px 0px 0px 18px rgba(0,0,0,0.2),
+                6px 6px 8px 17px #555;
+   
+     -moz-box-shadow:
+            0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 14px #fff,
+                0px 0px 0px 18px rgba(0,0,0,0.2),
+                6px 6px 8px 17px #555;
+   
+          box-shadow:
+            0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 14px #fff,
+                0px 0px 0px 18px rgba(0,0,0,0.2),
+                6px 6px 8px 17px #555;
 }
 
 .box6:before{
@@ -191,15 +195,21 @@ body {
 #leftNav, #rightNav{
     position: absolute;
     height:100%;
-    background-color:black;
-    opacity: 0.4;
+    background-color:aquamarine;
+    opacity: 0.2;
     width: 40px;
     z-index: 3;
     color: aliceblue;
     padding-left: 10px;
-    padding-top: 46%;
+    padding-top: 34%;
     font-size:40px;
     font-family:-webkit-pictograph;
+}
+
+
+#leftNav:hover,
+#rightNav:hover{
+    opacity: 0.4;
 }
 
 #leftNav{
@@ -226,7 +236,7 @@ body {
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-left: 20px solid white;
+    border-left: 20px solid black;
 }
 
 .arrow-left {
@@ -234,7 +244,7 @@ body {
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-right: 20px solid white;
+    border-right: 20px solid black;
 }
 
 #intro{
@@ -275,4 +285,66 @@ body {
 #preloader img{
     margin: auto;
     display: table-cell;
+}
+
+#header{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    color: darkseagreen;
+    font-size: 22px;
+    padding-top: 9px;
+    padding-left: 0px;
+    text-align: center;
+    background-color: #f1f1f1;
+    -webkit-box-shadow: 10px 10px 72px 0px rgba(0,0,0,0.75);
+    z-index: 100;
+}
+
+#dragDrop, #album{
+    display:table;
+}
+
+#album_table{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+#table_cell{
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+    position: inherit;
+}
+
+#backscreen{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+}
+
+#imgMain{
+    border: 7px solid white;
+    margin:auto;
+    position:relative;
+    display:table-cell;
+}
+
+.clickMe{
+    display: inline;
+    width: 94px;
+    margin: 0;
+    padding: 0px;
+    margin-left: 2px;
+    margin-right: 6px;
+}
+
+.walterNoBorder{
+    border: none !important;
 }

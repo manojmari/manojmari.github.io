@@ -16,7 +16,10 @@ function loadXmlAndContinue(){
         createFriends($(xml).find('friends').children());
         loadMp3($(xml).find('audios').children());
         var arrImages = getPreloaderImages($(xml).find('images').children());
-        console.log(arrImages)
+		//var allImages = getPreloaderImages($(xml).find('img'));        
+        // preloadImages(allImages, function(){
+        // 	console.log('success');
+        // })
         preloadImages(arrImages,function(){
 	        loadInteractive();
 	        playSound('sym');
@@ -64,9 +67,9 @@ function submitName(event){
 
 	var other = friend.other;
 	if(!_.isString(other))
-		return loadDragDrop(name);
+		return preloadAndStartDragDrop(name);
 	if(_.isEmpty(other = other.trim()))
-		return loadDragDrop(name);
+		return preloadAndStartDragDrop(name);
 	
 	var otherNames = other.split(',');
 
@@ -78,7 +81,7 @@ function submitName(event){
 	$('#warning').html("Did you mean?");
 	$('#warningContainer').fadeIn();
 	$('.abc').click(function(){
-		return loadDragDrop(name);
+		return preloadAndStartDragDrop(name);
 	})
 	return false;
 }
@@ -92,24 +95,28 @@ function loadFutureImages(friend){
 		imgDom.className = 'imgShow_imgs';
 		if(index ==0)
 			imgDom.style.display = 'inline';
-		$('#imageShow').append(imgDom);
 		index++;
 	});
 	$('#imageShow').data({'current' : 0 ,'maxIndex' : index });
-	$('#leftNav').click(showLeft);
-	$('#rightNav').click(showRight);
-
+	
 	//var maxIndex = $('#imageShow').data();
 }
 
-function loadDragDrop(name){
+function preloadAndStartDragDrop(name){
 	var friends = $(document).data('friends'),
 		groups = $(document).data('groups'),
 		friend = _.find(friends, function(curr){
 			return curr.name.toLowerCase() == name.toLowerCase()}),
 		group = _.find(groups, {id: friend.group});
+		$(document).data('friend', friend);
+		preloadImages(_.clone(friend.images),function(){
+			loadDragDrop(name, friend, group);
+		})
+}
 
-	loadFutureImages(friend);
+function loadDragDrop(name, friend, group){
+	
+	//loadFutureImages(friend);
 	$('#user-info').hide();
 	$('#dragDrop').show();
 	var puzzleHtml = "";
@@ -121,8 +128,8 @@ function loadDragDrop(name){
 			var backPosY = i * 150;
 			puzzleHtml += "<div class='puzzlePiece tiles positionRelative' style='"
 			+" background-position:-" + backPosX+ "px -" + backPosY+ "px;"
-			+"-webkit-mask-image: url(data/svg/" + i + j + ".svg);' dragId="+i+j+"></div>";
-			referenceHtml += "<img class='tiles droppables'  dropId="+i+j+" style='top:" + (i * 150) + "px;left:" + (j * 150) + "px' src='data/svg/" + i + j + ".svg' />"
+			+"-webkit-mask-image: url(data/images/" + i + j + ".svg);' dragId="+i+j+"></div>";
+			referenceHtml += "<img class='tiles droppables'  dropId="+i+j+" style='top:" + (i * 150) + "px;left:" + (j * 150) + "px' src='data/images/" + i + j + ".svg' />"
 		}	
 	}
 	$('#draggableContainer').html(puzzleHtml);
@@ -151,6 +158,7 @@ function loadDragDrop(name){
 			$('#draggableResultContainer').append(ui.draggable);
 			$(ui.draggable).css({top: y*150+'px', left: x*150+'px'}).draggable({'disabled': true}).removeClass('positionRelative');
 			if($('#draggableResultContainer').children().length == 10){
+				/*
 				$('#dragResultText').html("So " + name + " you DO remember this picture!! Come, let's checkout some more...");
 				$('#draggableContainer').slideUp(function(){
 					$('#dragDropResult').slideDown();
@@ -162,6 +170,8 @@ function loadDragDrop(name){
 					if(e.keyCode == 39)
 						showRight();
 				})
+				*/
+				startWalter();
 			}
 		}
 	});
@@ -169,30 +179,76 @@ function loadDragDrop(name){
 	return false;
 }
 
+function startWalter(){
+	$('#header').html("YOU'RE GODDAMN RIGHT!!");
+	$('#album').fadeIn(function(){
+		playSound('walter', endWalter);
+	});
+	$('#imgMain').css({'max-height':$('#album_table').height(), 'max-width':$('#album_table').width()})
+	$('#imgMain').attr('src', 'data/images/walter.png');
+	$('#imgMain').addClass('walterNoBorder');
+	
+}
+
+function endWalter(){
+	$('#header').html('Now you better ' + 
+		'<button id="" class="clickMe btn btn-lg btn-primary btn-block" onclick="loadAlbum()">CLICK ME</button>' + 
+		' and start remembering how we met!');
+}
+
+function loadAlbum(){
+	$('#imgMain').removeClass('walterNoBorder');
+	$('#header').html("Yeah, that's what I thought...now KEEP MOVING!!");
+	$('#leftNav,#rightNav').fadeIn();
+	$(document).bind('keydown',function(e){
+		if(e.keyCode == 37)
+			showLeft();
+		if(e.keyCode == 39)
+			showRight();
+	});
+	$('#leftNav').click(showLeft);
+	$('#rightNav').click(showRight);
+	var friend = $(document).data('friend');
+	$('#imgMain').attr('src', 'data/images/' + friend.images[0].file);
+	$('#imageShow').data('current', 0)
+}
+
 function showLeft(){
+	var friend = $(document).data('friend');
 	var prevIndex = $('#imageShow').data('current');
-	var maxIndex = $('#imageShow').data('maxIndex');
+	var maxIndex = friend.images.length;
 
 	var currentIndex = prevIndex - 1
 	if(currentIndex == -1)
 		currentIndex = maxIndex - 1;
-	$('#img_' + prevIndex).hide("slide", { direction: "right" }, 300, function(){
+	
+	$('#imgMain').attr('src', 'data/images/' + friend.images[currentIndex].file);
+	$('#imageShow').data('current', currentIndex)
+
+	/*$('#img_' + prevIndex).hide("slide", { direction: "right" }, 300, function(){
 	});
 		$('#img_' + currentIndex).show("slide", { direction: "left" }, 300);
 	$('#imageShow').data({'current': currentIndex});
+	*/
 }
 
 function showRight(){
+	var friend = $(document).data('friend');
 	var prevIndex = $('#imageShow').data('current');
-	var maxIndex = $('#imageShow').data('maxIndex');
+	var maxIndex = friend.images.length;
 
 	var currentIndex = prevIndex + 1
 	if(currentIndex == maxIndex)
-		currentIndex = 0;
+		currentIndex = 0;	
+
+	$('#imgMain').attr('src', 'data/images/' + friend.images[currentIndex].file);
+	$('#imageShow').data('current', currentIndex)
+	/*
 	$('#img_' + prevIndex).hide("slide", { direction: "left" }, 300, function(){
 	});
 		$('#img_' + currentIndex).show("slide", { direction: "right" }, 300);
 	$('#imageShow').data({'current': currentIndex});
+	*/
 }
 
 function renderAttributes(oThis){
@@ -262,7 +318,7 @@ function loadMp3(audios){
 	$(document).data('audios', arrGroup);
 }
 
-function playSound(audioId){
+function playSound(audioId, callback){
 	var audios = $(document).data('audios');
 	var playingAudio = _.find(audios, {id:audios.current});
 	if(playingAudio != null)
@@ -271,6 +327,7 @@ function playSound(audioId){
 	if(currentAudio != null){
 		currentAudio.audio.currentTime = currentAudio.start ? parseInt(currentAudio.start) : 0;
 		currentAudio.audio.play();
+		currentAudio.audio.onended = callback;
 		audios.current = audioId;
 	}
 }
@@ -286,7 +343,7 @@ function preloadImages(arrImages, callback){
 
 	var currentImg = arrImages.pop();
 	var x = document.createElement('img');
-	x.onload = function(){
+	x.onload = x.onerror = function(){
 		preloadImages(arrImages, callback);
 	}
 	x.src = 'data/images/' + currentImg.file;

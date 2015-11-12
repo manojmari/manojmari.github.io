@@ -42,23 +42,37 @@
 	</div>
 
     <div id="dragDrop" style="display:none;position:absolute;height:100%;width:100%;overflow:hidden;">
-        <div class="" style="position:absolute;height:100%;width:100%">
-                <div id="draggableContainer" style="height: 100%;width: 270px;padding-left: 50px;padding-top: 50px;"></div>
+        <div id="header">DO YOU REMEMBER THIS?!?</div>
+        <div class="" style="position:relative;display:table-cell;width:100%;top:50px">
+            <div id="draggableContainer" style="height: 100%;width: 270px;padding-left: 50px;padding-top: 50px;"></div>
                 <div id="dragDropResult" style="height: 100%; width: 270px; padding-left: 22px; padding-top: 90px;padding-right: 22px;display:none;">
-                    <div id="dragResultText" class="alert alert-warning">
+                    <div id="dragResultText" style="-webkit-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);" class="alert alert-warning">
                 </div>
-                </div>
+            </div>
             <div id="dragDropContainer" style="margin-left:347px;margin-top:87px;">
                 <div class="box6 frame" style="background-image: url('data/images/frame1.png');"></div>
                 <div id="referenceTiles"></div>
                 <div id="droppableArea"></div>
                 <div id="draggableResultContainer">
                     <div id="imageShow">
-                        <div id="leftNav"><div class="arrow-left"></div></div>
-                        <div id="rightNav"><div class="arrow-right"></div></div>
+                        
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="album" style="display:none;position:absolute;height:100%;width:100%;overflow:hidden;">
+        <div style="position: relative;display:table-cell;width:100%;top:50px;z-index:100;">
+            <div id="backscreen"></div>
+            <div id="album_table">
+                <div id="leftNav" style="display:none"><div class="arrow-left"></div></div>
+                        <div id="rightNav"  style="display:none"><div class="arrow-right"></div></div>
+                <div id="table_cell">
+                    <img id="imgMain">
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>
