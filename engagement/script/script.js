@@ -67,8 +67,10 @@ function loadInteractive(){
 
 function fncTextLoader(arrTextForIntro){
 	if(arrTextForIntro == 0){
+		$('#ring').show().click(function(){
 			$('#intro').hide();
         	$('#user-info').show();
+        });
 		return;
 	}
 	textForIntro = arrTextForIntro[0];
@@ -271,11 +273,12 @@ function loadAlbum(){
 }
 
 function animateImg(){
-var wid = $('#imgMain').width();
-console.log(wid)
-$('#imgMain').css('width',0).animate({'width':wid+'px'},200, function(){
-$('#imgMain')[0].style.width= "";
-})
+	$('#imgMain').stop(true,false)[0].style.width = "";
+	var wid = $('#imgMain').width();
+	console.log(wid)
+	$('#imgMain').css('width',0).animate({'width':wid+'px'},200, function(){
+		$('#imgMain')[0].style.width= "";
+	})
 }
 
 function showLeft(){

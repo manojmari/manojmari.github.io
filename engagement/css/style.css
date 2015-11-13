@@ -359,6 +359,7 @@ body {
     left:0;
     top:0;
     z-index:10;
+    pointer-events:none;
 }
 
 #curtain_left{
@@ -418,4 +419,19 @@ body {
     text-overflow: clip;
     font-size: 30px;
     background-color: black;
+}
+
+#ring{
+    width: 100px;
+    margin: auto;
+    display: block;
+    background-image: url('../data/images/ring.png');
+    height: 100px;
+    background-size: 90%;
+    cursor: pointer;
+    background-position: 50% 50%;
+    display: none;
+}
+#ring:hover{
+    background-size: 100%;
 }

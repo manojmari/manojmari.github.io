@@ -275,10 +275,9 @@
       <audio id="sym" url="symphony" start="20"/>
    </audios>
    <images>
-      <img file="curtain.jpg" />
-      <img file="fold_curtain.jpg" />
+      <img file="curtain_side.png" />
       <img file="fold_curtain.png" />
-      <img file="frame.png" />
+      <img file="ring.png" />
       <img file="intro.jpg" />
       <img file="rope.png" />
       <img file="walter.png" />
