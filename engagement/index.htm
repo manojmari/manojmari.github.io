@@ -16,12 +16,22 @@
 <body>
 <div id="mainBody" style="display:none">
     <div id="intro">
-        <div id="backCurtain" style="background-image:url('data/images/curtain.jpg')">
-            <div id="stupidPhoto" style="background-image:url('data/images/intro.jpg')"></div>
+        <div id="backCurtain" style="">
+            <div id="intro_text_container">
+                <div id="introBlackScreen"></div>
+                <div id="introCell" >
+                    <div id="introTextDiv">
+                        <span id="introText"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="collage">
+            </div>
+            <div id="curtain_right" style="background-image:url('data/images/curtain_side.png')"></div>
+            <div id="curtain_left" style="background-image:url('data/images/curtain_side.png')"></div>
         </div>
-        <div id="curtain"  style="background-image:url('data/images/fold_curtain.png');height:95%"></div>
-        <div id="rope" style="background-image:url('data/images/rope.png');"></div>
-        <button id="curtainNext" style="position:absolute;bottom:0px;display:none" class="btn btn-lg btn-primary btn-block" type="submit">SOMEBODY STOP THIS MUSIC</button>
+        <div id="curtain"  style="background-image:url('data/images/fold_curtain.png');height:95%;z-index:10;"></div>
+        <div id="rope" style="background-image:url('data/images/rope.png');z-index:10;"></div>
     </div>
 
 	<div id="user-info" style="display:none">
@@ -80,6 +90,14 @@
     <div style="height:100%;width:100%;display:table-cell;vertical-align:middle">
         <img src="data/images/preloader.gif" />
     </div>
+</div>
+<div id="introTextFromHere" style="display:none">
+    <span>The journey so far has been very unexpected...</span>
+    <span>the countless days of separation...</span>
+    <span>the endless travels to see each other's face...</span>
+    <span>the never-ending tension for problems...we never had to face...</span>
+    <span>but it was the everlasting hope that kept us going...</span>
+    <span>and the puzzle did fall into place!!</span>
 </div>
 </body>
 </html>

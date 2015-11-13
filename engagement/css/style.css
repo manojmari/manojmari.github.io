@@ -348,3 +348,74 @@ body {
 .walterNoBorder{
     border: none !important;
 }
+
+#curtain_right, #curtain_left{
+    height: 100%;
+    width: 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 100% 0px;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:10;
+}
+
+#curtain_left{
+    -webkit-transform: scale(-1, 1);
+}
+
+#collage{
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    top: 10%;
+    height: 80%;
+}
+
+.tileShow{
+    width: 33%;
+    height:33%;
+    position:absolute;
+    background-size: auto 100%;
+    background-position: 50% 50%;
+    border: 10px solid transparent;
+    background-repeat: no-repeat;
+}
+
+#intro_text_container{
+    position: absolute;
+    height: 100%;
+    width: 100%;z-index:10;
+    display:table;
+}
+
+#introBlackScreen{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+}
+
+#introCell{
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+}
+
+#introTextDiv{
+    margin: auto;
+    position: relative;
+    color: white;
+    max-width: 500px;
+    text-align: center;
+}
+
+#introText{
+    width: 0px;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 30px;
+    background-color: black;
+}

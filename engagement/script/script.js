@@ -22,13 +22,18 @@ function loadXmlAndContinue(){
         // })
         preloadImages(arrImages,function(){
 	        loadInteractive();
-	        playSound('sym');
+	        //playSound('sym');
 			$('#rope').click(function(){
-				$('#rope').slideUp();
-				$('#curtain').animate({height: "80%"}, 4000, function(){
-					$('#curtain').animate({height: "0%"}, 2000, function(){});
-					playSound('baba');
-        			$('#curtainNext').show();
+				$('#rope').hide();
+				$('#curtain').animate({height: "0%"}, 2000, function(){
+					playSound('giorni');
+					var ourArray = $('.tileShow').data('imgCount', 0);
+        			tileShowAnim(shuffle(ourArray.toArray()));
+        			var textForIntro = _.map($('#introTextFromHere').children(), function(currentSpan){
+        				return $(currentSpan).html();
+        			});
+        			console.log(textForIntro);
+        			fncTextLoader(textForIntro);
 				})
 			});
         });
@@ -46,6 +51,58 @@ function loadInteractive(){
 		friendNames = _.pluck(friends, 'name');	
 	$( "#inputName" ).autocomplete({ source: friendNames, delay: 100 });
 	$('.form-signin').submit(submitName);
+	
+	var tileShowHtml = "";
+	var tile_count =0;
+	for(var i=0;i<3;i++)
+		for(var j=0;j<3;j++){
+			var left = j*33.33;
+			var top = i*33.33;
+			tileShowHtml += '<div class="tileShow" style="display:none;left:'+left+'%;top:'+top+'%;'+
+			'background-image:url(\'data/images/us/'+(tile_count++)+'.jpg\');"></div>';
+		}
+
+	$('#collage').html(tileShowHtml)
+}
+
+function fncTextLoader(arrTextForIntro){
+	if(arrTextForIntro == 0){
+			$('#intro').hide();
+        	$('#user-info').show();
+		return;
+	}
+	textForIntro = arrTextForIntro[0];
+	if(textForIntro.length == 0){
+		arrTextForIntro.shift();
+		setTimeout(function(){
+			$('#introText').html("");
+			fncTextLoader(arrTextForIntro);
+		}, 2500);
+	}
+	else{
+		$('#introText').html($('#introText').html()+textForIntro.charAt(0));
+		arrTextForIntro[0] = textForIntro.substring(1)
+		setTimeout(function(){
+			fncTextLoader(arrTextForIntro);
+		}, 100);
+	}
+}
+
+function tileShowAnim(ourArray){
+
+	var currentTile = ourArray.shift();
+	var imgCount = $(currentTile).data('imgCount');
+	$(currentTile).fadeIn().fadeOut().data('imgCount', ++imgCount);
+	console.log(ourArray)
+	if(imgCount != 5)
+		ourArray.push(currentTile);
+	if(ourArray.length != 1){
+		setTimeout(function(){
+			tileShowAnim(ourArray)
+		},500);
+	}
+	else
+		$('.tileShow').stop(true,false).fadeIn(500);
 }
 
 function noSuchFriend(){
