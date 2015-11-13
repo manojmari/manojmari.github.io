@@ -241,7 +241,7 @@ function startWalter(){
 	$('#album').fadeIn(function(){
 		playSound('walter', endWalter);
 	});
-	$('#imgMain').css({'max-height':$('#album_table').height(), 'max-width':$('#album_table').width()})
+	$('#imgMain').css({'max-height':($('#album_table').height()-100), 'max-width':$('#album_table').width()})
 	$('#imgMain').attr('src', 'data/images/walter.png');
 	$('#imgMain').addClass('walterNoBorder');
 	
@@ -270,6 +270,14 @@ function loadAlbum(){
 	$('#imageShow').data('current', 0)
 }
 
+function animateImg(){
+var wid = $('#imgMain').width();
+console.log(wid)
+$('#imgMain').css('width',0).animate({'width':wid+'px'},200, function(){
+$('#imgMain')[0].style.width= "";
+})
+}
+
 function showLeft(){
 	var friend = $(document).data('friend');
 	var prevIndex = $('#imageShow').data('current');
@@ -279,6 +287,7 @@ function showLeft(){
 	if(currentIndex == -1)
 		currentIndex = maxIndex - 1;
 	
+	$('#imgMain')[0].onload = animateImg;
 	$('#imgMain').attr('src', 'data/images/' + friend.images[currentIndex].file);
 	$('#imageShow').data('current', currentIndex)
 
@@ -287,6 +296,7 @@ function showLeft(){
 		$('#img_' + currentIndex).show("slide", { direction: "left" }, 300);
 	$('#imageShow').data({'current': currentIndex});
 	*/
+	//();
 }
 
 function showRight(){
@@ -298,6 +308,7 @@ function showRight(){
 	if(currentIndex == maxIndex)
 		currentIndex = 0;	
 
+	$('#imgMain')[0].onload = animateImg;
 	$('#imgMain').attr('src', 'data/images/' + friend.images[currentIndex].file);
 	$('#imageShow').data('current', currentIndex)
 	/*
@@ -306,6 +317,7 @@ function showRight(){
 		$('#img_' + currentIndex).show("slide", { direction: "right" }, 300);
 	$('#imageShow').data({'current': currentIndex});
 	*/
+	//animateImg();
 }
 
 function renderAttributes(oThis){
