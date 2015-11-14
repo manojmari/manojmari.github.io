@@ -11,6 +11,9 @@
        <group id="extc" file="extc.jpg" />
        <group id="football" file="football.jpg" />
          <group id="match" file="match.jpg" />
+         <group id="home" file="home.jpg" />
+         <group id="home1" file="home1.jpg" />
+         <group id="all" file="all.jpg" />
     </groups>
    <friends>
       <friend name="kaushik" group="kauvas" other="aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet">
@@ -252,6 +255,72 @@
     
       </friend>
 
+      <friend name="Harsh" group="home">
+         <img file="harsh_0.jpg" text="" />
+         <img file="harsh_1.jpg" text="" />
+         <img file="harsh_2.jpg" text="" />
+         <img file="harsh_3.jpg" text="" />
+         <img file="harsh_4.jpg" text="" />
+          <img file="harsh_5.jpg" text="" />
+      </friend>
+
+      <friend name="Rohan Hande" group="home">
+         <img file="hande_0.jpg" text="" />
+         <img file="hande_1.jpg" text="" />
+         <img file="hande_2.jpg" text="" />
+         <img file="hande_3.jpg" text="" />
+         <img file="hande_4.jpg" text="" />
+          <img file="hande_5.jpg" text="" />
+      </friend>
+
+      <friend name="Nikita" group="home1">
+         <img file="niki_0.jpg" text="" />
+         <img file="niki_1.jpg" text="" />
+         <img file="niki_2.jpg" text="" />
+         <img file="niki_3.jpg" text="" />
+         <img file="niki_4.jpg" text="" />
+          <img file="niki_5.jpg" text="" />
+          <img file="niki_6.jpg" text="" />
+      </friend>
+
+      <friend name="Soumil" group="home">
+         <img file="saumil_0.jpg" text="" />
+         <img file="saumil_1.jpg" text="" />
+         <img file="saumil_2.jpg" text="" />
+         <img file="saumil_3.jpg" text="" />
+         <img file="saumil_4.jpg" text="" />
+          <img file="saumil_5.jpg" text="" />
+      </friend>
+
+       <friend name="Shaunak" group="all">
+         <img file="shaunak_0.jpg" text="" />
+         <img file="shaunak_1.jpg" text="" />
+         <img file="shaunak_2.jpg" text="" />
+         <img file="shaunak_3.jpg" text="" />
+         <img file="shaunak_4.jpg" text="" />
+          <img file="shaunak_5.jpg" text="" />
+      </friend>
+
+      <friend name="Pranit" group="home">
+         <img file="pranit_0.jpg" text="" />
+         <img file="pranit_1.jpg" text="" />
+         <img file="pranit_2.jpg" text="" />
+         <img file="pranit_3.jpg" text="" />
+         <img file="pranit_4.jpg" text="" />
+          <img file="pranit_5.jpg" text="" />
+          <img file="pranit_6.jpg" text="" />
+      </friend>
+
+      <friend name="Bhakti" group="home1">
+         <img file="bhakti_0.jpg" text="" />
+         <img file="bhakti_1.jpg" text="" />
+         <img file="bhakti_2.jpg" text="" />
+         <img file="bhakti_3.jpg" text="" />
+         <img file="bhakti_4.jpg" text="" />
+          <img file="bhakti_5.jpg" text="" />
+          <img file="bhakti_6.jpg" text="" />
+      </friend>
+
 
       <friend name="Kiran Kannan" group="kauvas" >
          <img file="" text="chodu" />
@@ -268,7 +337,7 @@
       <friend name="Mahesh" group="kauvas" >
          <img file="" text="" />
       </friend>
-   </friends>
+   </friends>d
    <audios>
       <audio id="giorni" url="i_giorni" />
       <audio id="walter" url="heisen" repeat="false" start="2"/>
