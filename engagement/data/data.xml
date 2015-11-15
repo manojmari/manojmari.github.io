@@ -30,6 +30,7 @@
          <img file="purva_4.jpg" text="" />
          <img file="purva_5.jpg" text="" />
          <img file="purva_6.jpg" text="" />
+         <img file="purva_7.jpg" text="" />
       </friend>
 
       <friend name="Ganesh" group="purva">
@@ -39,6 +40,8 @@
          <img file="ganesh_3.jpg" text="" />
          <img file="ganesh_4.jpg" text="" />
          <img file="ganesh_5.jpg" text="" />
+         <img file="ganesh_6.jpg" text="" />
+         <img file="ganesh_7.jpg" text="" />
       </friend>
 
 
@@ -50,6 +53,7 @@
          <img file="spanda_4.jpg" text="" />
          <img file="spanda_5.jpg" text="" />
          <img file="spanda_6.jpg" text="" />
+         <img file="spanda_7.jpg" text="" />
       </friend>
 
       <friend name="Bala" group="lonavala">
@@ -58,6 +62,8 @@
          <img file="bala_2.jpg" text="" />
          <img file="bala_3.jpg" text="" />
          <img file="bala_4.jpg" text="" />
+          <img file="bala_5.jpg" text="" />
+             <img file="bala_6.jpg" text="" />
       </friend>
 
       <friend name="Samaresh" group="steps">
@@ -67,6 +73,7 @@
          <img file="chammu_3.jpg" text="" />
          <img file="chammu_4.jpg" text="" />
          <img file="chammu_5.jpg" text="" />
+          <img file="chammu_6.jpg" text="" />
       </friend>
 
       <friend name="Disha" group="ILP">
@@ -75,6 +82,7 @@
          <img file="disha_2.jpg" text="" />
          <img file="disha_3.jpg" text="" />
          <img file="disha_4.jpg" text="" />
+         <img file="disha_5.jpg" text="" />
       </friend>
 
       <friend name="Rohan Iyer" group="lonavala">
@@ -84,6 +92,7 @@
          <img file="iyer_3.jpg" text="" />
          <img file="iyer_4.jpg" text="" />
          <img file="iyer_5.jpg" text="" />
+         <img file="iyer_6.jpg" text="" />
       </friend>
 
       <friend name="Jagruti" group="jags">
@@ -110,6 +119,7 @@
          <img file="keshav_3.jpg" text="" />
          <img file="keshav_4.jpg" text="" />
          <img file="keshav_5.jpg" text="" />
+         <img file="keshav_6.jpg" text="" />
       </friend>
 
       <friend name="Shruti" group="extc">
@@ -120,6 +130,7 @@
          <img file="kutty_4.jpg" text="" />
          <img file="kutty_5.jpg" text="" />
          <img file="kutty_6.jpg" text="" />
+           <img file="kutty_7.jpg" text="" />
       </friend>
 
       <friend name="Prathitha" group="extc">
@@ -127,6 +138,8 @@
          <img file="prat_1.jpg" text="" />
          <img file="prat_2.jpg" text="" />
          <img file="prat_3.jpg" text="" />
+          <img file="prat_4.jpg" text="" />
+         <img file="prat_5.jpg" text="" />
          </friend>
 
          <friend name="Pritam" group="ILP">
@@ -147,6 +160,7 @@
          <img file="rad_4.jpg" text="" />
          <img file="rad_5.jpg" text="" />
          <img file="rad_6.jpg" text="" />
+         <img file="rad_7.jpg" text="" />
       </friend>
 
 <friend name="Shweta" group="steps">
@@ -156,6 +170,7 @@
          <img file="shweta_3.jpg" text="" />
          <img file="shweta_4.jpg" text="" />
          <img file="shweta_5.jpg" text="" />
+         <img file="shweta_6.jpg" text="" />
       </friend>
 
 <friend name="Vivek" group="Hydbad">
@@ -165,18 +180,27 @@
          <img file="torres_4.jpg" text="" />
          <img file="torres_5.jpg" text="" />
          <img file="torres_6.jpg" text="" />
+         <img file="torres_7.jpg" text="" />
       </friend>
 
        <friend name="Venkat" group="extc">
          <img file="venkat_0.jpg" text="" />
          <img file="venkat_1.jpg" text="" />
          <img file="venkat_2.jpg" text="" />
+         <img file="venkat_3.jpg" text="" />
+         <img file="venkat_4.jpg" text="" />
+         <img file="venkat_5.jpg" text="" />
+         <img file="venkat_6.jpg" text="" />
             </friend>
 
              <friend name="Prashant" group="ILP">
          <img file="pakya_0.jpg" text="" />
          <img file="pakya_1.jpg" text="" />
          <img file="pakya_2.jpg" text="" />
+         <img file="pakya_3.jpg" text="" />
+         <img file="pakya_4.jpg" text="" />
+         <img file="pakya_5.jpg" text="" />
+         <img file="pakya_6.jpg" text="" />
             </friend>
 
 <friend name="Kaustubh" group="lonavala">
@@ -187,6 +211,7 @@
          <img file="kl_4.jpg" text="" />
          <img file="kl_5.jpg" text="" />
          <img file="kl_6.jpg" text="" />
+             <img file="kl_7.jpg" text="" />
       </friend>
 
 
@@ -198,6 +223,7 @@
          <img file="krshna_4.jpg" text="" />
          <img file="krshna_5.jpg" text="" />
          <img file="krshna_6.jpg" text="" />
+         <img file="krshna_7.jpg" text="" />
       </friend>
 
        <friend name="Rajkiran" group="lonavala">
@@ -207,6 +233,7 @@
          <img file="raju_3.jpg" text="" />
          <img file="raju_4.jpg" text="" />
          <img file="raju_5.jpg" text="" />
+         <img file="raju_6.jpg" text="" />
       </friend>
 
       <friend name="Ramu" group="lonavala">
@@ -216,6 +243,7 @@
          <img file="ramu_3.jpg" text="" />
          <img file="ramu_4.jpg" text="" />
          <img file="ramu_5.jpg" text="" />
+         <img file="ramu_6.jpg" text="" />
       </friend>
 
        <friend name="Ritika" group="football">
@@ -225,6 +253,7 @@
          <img file="ritz_3.jpg" text="" />
          <img file="ritz_4.jpg" text="" />
          <img file="ritz_5.jpg" text="" />
+             <img file="ritz_6.jpg" text="" />
       </friend>
 
 <friend name="Vibhuti" group="football">
@@ -234,6 +263,7 @@
          <img file="vibs_4.jpg" text="" />
          <img file="vibs_5.jpg" text="" />
                <img file="vibs_6.jpg" text="" />
+                 <img file="vibs_7.jpg" text="" />
       </friend>
 
  <friend name="Sanmit" group="match">
@@ -242,7 +272,8 @@
          <img file="sonu_2.jpg" text="" />
          <img file="sonu_3.jpg" text="" />
          <img file="sonu_4.jpg" text="" />
-    
+      <img file="sonu_5.jpg" text="" />
+       <img file="sonu_6.jpg" text="" />
       </friend>
 
       <friend name="Nandeep" group="match">
@@ -271,6 +302,7 @@
          <img file="hande_3.jpg" text="" />
          <img file="hande_4.jpg" text="" />
           <img file="hande_5.jpg" text="" />
+          <img file="hande_6.jpg" text="" />
       </friend>
 
       <friend name="Nikita" group="home1">
@@ -290,6 +322,7 @@
          <img file="saumil_3.jpg" text="" />
          <img file="saumil_4.jpg" text="" />
           <img file="saumil_5.jpg" text="" />
+          <img file="saumil_6.jpg" text="" />
       </friend>
 
        <friend name="Shaunak" group="all">
@@ -319,6 +352,21 @@
          <img file="bhakti_4.jpg" text="" />
           <img file="bhakti_5.jpg" text="" />
           <img file="bhakti_6.jpg" text="" />
+      </friend>
+
+      <friend name="Tanay" group="home1">
+         <img file="tanay_0.jpg" text="" />
+         <img file="tanay_1.jpg" text="" />
+         <img file="tanay_2.jpg" text="" />
+         <img file="tanay_3.jpg" text="" />
+      </friend>
+
+      <friend name="Vivek" group="steps">
+         <img file="vivek_0.jpg" text="" />
+         <img file="vivek_1.jpg" text="" />
+         <img file="vivek_2.jpg" text="" />
+         <img file="vivek_3.jpg" text="" />
+         <img file="vivek_4.jpg" text="" />
       </friend>
 
 
