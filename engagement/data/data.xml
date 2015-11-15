@@ -14,6 +14,7 @@
          <group id="home" file="home.jpg" />
          <group id="home1" file="home1.jpg" />
          <group id="all" file="all.jpg" />
+         <group id="Neo" file="Neo.jpg" />
     </groups>
    <friends>
       <friend name="kaushik" group="kauvas" other="aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet">
@@ -369,8 +370,14 @@
          <img file="vivek_2.jpg" text="" />
          <img file="vivek_3.jpg" text="" />
          <img file="vivek_4.jpg" text="" />
+          <img file="vivek_5.jpg" text="" />
       </friend>
 
+ <friend name="Nahusha" group="Neo">
+         <img file="neo_0.jpg" text="" />
+         <img file="neo_1.jpg" text="" />
+         <img file="neo_2.jpg" text="" />
+      </friend>
 
       <friend name="Kiran Kannan" group="kauvas" >
          <img file="" text="chodu" />
