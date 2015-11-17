@@ -15,13 +15,11 @@
          <group id="home1" file="home1.jpg" />
          <group id="all" file="all.jpg" />
          <group id="Neo" file="Neo.jpg" />
+         <group id="disha" file="dishaVivek.jpg" />
+         <group id="chunnu" file="chunnu.jpg" />
+         <group id="chagaBaga" file="chagaBaga.jpg" />
     </groups>
    <friends>
-      <friend name="kaushik" group="kauvas" other="aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet,aand khau,chutiya,kakkus,toilet">
-         <img file="kauva.jpg" text="" />
-         <img file="kauva_0.jpg" text="" />
-         <img file="kauva_1.jpg" text="" />
-      </friend>
 
       <friend name="Purva" group="purva">
          <img file="purva_0.jpg" text="" />
@@ -79,13 +77,17 @@
           <img file="chammu_6.jpg" text="" />
       </friend>
 
-      <friend name="Disha" group="ILP">
+      <friend name="Disha" group="disha">
          <img file="disha_0.jpg" text="" />
          <img file="disha_1.jpg" text="" />
          <img file="disha_2.jpg" text="" />
          <img file="disha_3.jpg" text="" />
          <img file="disha_4.jpg" text="" />
          <img file="disha_5.jpg" text="" />
+         <img file="dishaManoj2.jpg" text="" />
+         <img file="vivek_1.jpg" text="" />
+         <img file="dishaManoj.jpg" text="" />
+         <img file="dishaAtishKauvaKannan.jpg" text="" />
       </friend>
 
       <friend name="Rohan Iyer" group="lonavala">
@@ -109,6 +111,7 @@
       <friend name="Kedar" group="steps">
          <img file="kedar_0.jpg" text="" />
          <img file="kedar_1.png" text="" />
+         <img file="kedarShashank.jpg" text="" />
          <img file="kedar_2.jpg" text="" />
          <img file="kedar_3.png" text="" />
          <img file="kedar_4.jpg" text="" />
@@ -166,17 +169,18 @@
          <img file="rad_7.jpg" text="" />
       </friend>
 
-<friend name="Shweta" group="steps">
+      <friend name="Shweta" group="steps">
          <img file="shweta_0.jpg" text="" />
          <img file="shweta_1.jpg" text="" />
          <img file="shweta_2.jpg" text="" />
          <img file="shweta_3.jpg" text="" />
          <img file="shweta_4.jpg" text="" />
          <img file="shweta_5.jpg" text="" />
+         <img file="shwetaAtishKauva.jpg" text="" />
          <img file="shweta_6.jpg" text="" />
       </friend>
 
-<friend name="Vivek" group="Hydbad">
+      <friend name="Vivek" group="Hydbad">
          <img file="torres_1.jpg" text="" />
          <img file="torres_2.jpg" text="" />
          <img file="torres_3.jpg" text="" />
@@ -201,12 +205,13 @@
          <img file="pakya_1.jpg" text="" />
          <img file="pakya_2.jpg" text="" />
          <img file="pakya_3.jpg" text="" />
+         <img file="shwetaAtishKauva.jpg" text="" />
          <img file="pakya_4.jpg" text="" />
          <img file="pakya_5.jpg" text="" />
          <img file="pakya_6.jpg" text="" />
             </friend>
 
-<friend name="Kaustubh" group="lonavala">
+      <friend name="Kaustubh" group="lonavala">
          <img file="kl_0.jpg" text="" />
          <img file="kl_1.jpg" text="" />
          <img file="kl_2.jpg" text="" />
@@ -259,7 +264,7 @@
              <img file="ritz_6.jpg" text="" />
       </friend>
 
-<friend name="Vibhuti" group="football">
+      <friend name="Vibhuti" group="football">
          <img file="vibs_1.jpg" text="" />
          <img file="vibs_2.jpg" text="" />
          <img file="vibs_3.jpg" text="" />
@@ -269,7 +274,7 @@
                  <img file="vibs_7.jpg" text="" />
       </friend>
 
- <friend name="Sanmit" group="match">
+      <friend name="Sanmit" group="match">
          <img file="sonu_0.jpg" text="" />
          <img file="sonu_1.jpg" text="" />
          <img file="sonu_2.jpg" text="" />
@@ -366,7 +371,7 @@
          <img file="tanay_3.jpg" text="" />
       </friend>
 
-      <friend name="Vivek" group="steps">
+      <friend name="Vivek Menon" group="steps">
          <img file="vivek_0.jpg" text="" />
          <img file="vivek_1.jpg" text="" />
          <img file="vivek_2.jpg" text="" />
@@ -374,34 +379,153 @@
          <img file="vivek_4.jpg" text="" />
           <img file="vivek_5.jpg" text="" />
           <img file="vivek_6.jpg" text="" />
+          <img file="vivek2.jpg" text="" />
+          <img file="vivekKauva.jpg" text="" />
       </friend>
 
- <friend name="Nahusha" group="Neo">
+      <friend name="Nahusha" group="Neo">
          <img file="neo_0.jpg" text="" />
          <img file="neo_1.jpg" text="" />
          <img file="neo_2.jpg" text="" />
       </friend>
 
-      <friend name="Kiran Kannan" group="kauvas" >
-         <img file="" text="chodu" />
+
+
+
+<!--   -->
+      <friend name="kaushik" group="chunnu" other="aand khau,chutiya,kakkus,toilet">
+         <img file="kauva.jpg" text="" />
+         <img file="kauva_0.jpg" text="" />
+         <img file="kauva_1.jpg" text="" />
+         <img file="akshayKauva.jpg" text="" />
+         <img file="vivekKauva.jpg" text="" />
+         <img file="shwetaAtishKauva.jpg" text="" />
+         <img file="borkarHouse.jpg" text="" />
+         <img file="kauva3.jpg" text="" />
+         <img file="kauvaCheeto.jpg" text="" />
+         <img file="kauvaCheeto2.jpg" text="" />
+         <img file="kauvaCheeto5.jpg" text="" />
+         <img file="chunnu2.jpg" text="" />
+         <img file="chunnu3.jpg" text="" />
+         <img file="dishaAtishKauvaKannan.jpg" text="" />
+         <img file="chagaBaga3.jpg" text="" />
       </friend>
 
-      <friend name="Atish" group="kauvas" >
-         <img file="" text="" />
+      <friend name="Kiran Kannan" group="chunnu" >
+         <img file="akshayBorkarKannan.jpg" text="" />
+         <img file="akshayKannanShashankAtish.jpg" text="" />
+         <img file="kannan.jpg" text="" />
+         <img file="kannan2.jpg" text="" />
+         <img file="maheshKannan.jpg" text="" />
+         <img file="borkarHouse.jpg" text="" />
+         <img file="chunnu2.jpg" text="" />
+         <img file="shwetaAtishKauva.jpg" text="" />
+         <img file="chunnu3.jpg" text="" />
+         <img file="chagaBaga3.jpg" text="" />
+         <img file="kannanKauva.jpg" text="" />
+         <img file="dishaAtishKauvaKannan.jpg" text="" />
+         <img file="kannanVarun.jpg" text="" />
       </friend>
 
-      <friend name="Rakesh Lakshminarayanan" group="kauvas" >
-         <img file="" text="" />
+      <friend name="Atish" group="chunnu" >
+         <img file="akshayKannanShashankAtish.jpg" text="" />
+         <img file="akshayAtish.jpg" text="" />
+         <img file="annaAtish.jpg" text="" />
+         <img file="atish.jpg" text="" />
+         <img file="atish2.jpg" text="" />
+         <img file="atishCheeto.jpg" text="" />
+         <img file="atishCheeto2.jpg" text="" />
+         <img file="atishCheeto3.jpg" text="" />
+         <img file="borkarHouse.jpg" text="" />
+         <img file="chunnu2.jpg" text="" />
+         <img file="chunnu3.jpg" text="" />
+         <img file="chagaBaga2.jpg" text="" />
+         <img file="dishaAtishKauvaKannan.jpg" text="" />
+         <img file="chagaBaga3.jpg" text="" />
       </friend>
 
-      <friend name="Mahesh" group="kauvas" >
-         <img file="" text="" />
+      <friend name="Rakesh Lakshminarayanan" group="chagaBaga" >
+         <img file="kauva.jpg" text="" />
+         <img file="chagaBaga3.jpg" text="" />
       </friend>
-   </friends>d
+      <friend name="Akshay Kapoor" group="chunnu" >
+         <img file="akshayAtish.jpg" text="" />
+         <img file="akshayBorkarKannan.jpg" text="" />
+         <img file="akshayKannanShashankAtish.jpg" text="" />
+         <img file="akshayKauva.jpg" text="" />
+         <img file="akshayManoj.jpg" text="" />
+         <img file="borkarHouse.jpg" text="" />
+         <img file="chunnu2.jpg" text="" />
+         <img file="chunnu3.jpg" text="" />
+      </friend>
+      <friend name="Mahesh Panjwani" group="chagaBaga" >
+         <img file="mahesh.jpg" text="" />
+         <img file="maheshKannan.jpg" text="" />
+         <img file="mahesh2.jpg" text="" />
+         <img file="chagaBaga2.jpg" text="" />
+         <img file="chagaBaga3.jpg" text="" />
+      </friend>
+      <friend name="Varun chaga" group="chagaBaga" >
+         <img file="annaVarun.jpg" text="" />
+         <img file="maheshVarun.jpg" text="" />
+         <img file="chagaBaga2.jpg" text="" />
+         <img file="chagaBaga3.jpg" text="" />
+         <img file="kannanVarun.jpg" text="" />
+         <img file="varun.jpg" text="" />
+      </friend>
+
+      <friend name="Shashank Menon" group="chunnu" >
+         <img file="akshayKannanShashankAtish.jpg" text="" />
+         <img file="chunnu2.jpg" text="" />
+         <img file="chunnu3.jpg" text="" />
+         <img file="kedarShashank.jpg" text="" />
+         <img file="shashank.jpg" text="" />
+         <img file="shashankAnna.jpg" text="" />
+         <img file="shashankAnnaCheeto.jpg" text="" />
+      </friend>
+      <friend name="Kiran Nair" group="chunnu" >
+         <img file="anna.jpg" text="" />
+         <img file="anna2.jpg" text="" />
+         <img file="annaAtish.jpg" text="" />
+         <img file="annaVarun.jpg" text="" />
+         <img file="chunnu2.jpg" text="" />
+         <img file="chunnu3.jpg" text="" />
+         <img file="shashankAnna.jpg" text="" />
+         <img file="shashankAnnaCheeto.jpg" text="" />
+      </friend>
+      <friend name="Niraj Borkar" group="chunnu" >
+         <img file="akshayBorkarKannan.jpg" text="" />
+         <img file="borkarHouse.jpg" text="" />
+         <img file="chunnu2.jpg" text="" />
+         <img file="chunnu3.jpg" text="" />
+         <img file="borkarMe.jpg" text="" />
+      </friend>
+      <friend name="Muzzammil Bambot" group="chunnu" >
+         <img file="borkarHouse.jpg" text="" />
+         <img file="chunnu2.jpg" text="" />
+         <img file="chunnu3.jpg" text="" />
+      </friend>
+
+   </friends>
+   
+
+
+
+
+
+
+
+
    <audios>
       <audio id="giorni" url="i_giorni" />
       <audio id="walter" url="heisen" repeat="false" start="2"/>
    </audios>
+   
+
+
+
+
+
    <images>
       <img file="curtain_side.png" />
       <img file="fold_curtain.png" />

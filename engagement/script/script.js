@@ -36,10 +36,11 @@ function loadXmlAndContinue(){
         createFriends($(xml).find('friends').children());
         loadMp3($(xml).find('audios').children());
         var arrImages = getPreloaderImages($(xml).find('images').children());
-		//var allImages = getPreloaderImages($(xml).find('img'));        
-        // preloadImages(allImages, function(){
-        // 	console.log('success');
-        // })
+		var allImages = getPreloaderImages($(xml).find('img'));   
+		console.log(_.clone(allImages))     
+        preloadImages(allImages, function(){
+        	console.log('success');
+        })
         preloadImages(arrImages,function(){
 	        loadInteractive();
 	        //playSound('sym');
