@@ -37,10 +37,10 @@ function loadXmlAndContinue(){
         loadMp3($(xml).find('audios').children());
         var arrImages = getPreloaderImages($(xml).find('images').children());
 		var allImages = getPreloaderImages($(xml).find('img'));   
-		console.log(_.clone(allImages))     
-        preloadImages(allImages, function(){
-        	console.log('success');
-        })
+		// console.log(_.clone(allImages))     
+  //       preloadImages(allImages, function(){
+  //       	console.log('success');
+  //       })
         preloadImages(arrImages,function(){
 	        loadInteractive();
 	        //playSound('sym');
