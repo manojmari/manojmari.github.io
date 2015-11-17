@@ -94,14 +94,14 @@ function tileShowAnim(ourArray){
 
 	var currentTile = ourArray.shift();
 	var imgCount = $(currentTile).data('imgCount');
-	$(currentTile).fadeIn().fadeOut().data('imgCount', ++imgCount);
+	$(currentTile).fadeIn(800).fadeOut(800).data('imgCount', ++imgCount);
 	console.log(ourArray)
-	if(imgCount != 5)
+	if(imgCount != 6)
 		ourArray.push(currentTile);
 	if(ourArray.length != 1){
 		setTimeout(function(){
 			tileShowAnim(ourArray)
-		},500);
+		},800);
 	}
 	else
 		$('.tileShow').stop(true,false).fadeIn(500);
@@ -167,6 +167,9 @@ function preloadAndStartDragDrop(name){
 		friend = _.find(friends, function(curr){
 			return curr.name.toLowerCase() == name.toLowerCase()}),
 		group = _.find(groups, {id: friend.group});
+		console.log(friend)
+		console.log(group)
+		friend.images.unshift(group);
 		$(document).data('friend', friend);
 		preloadImages(_.clone(friend.images),function(){
 			loadDragDrop(name, friend, group);
@@ -240,6 +243,7 @@ function loadDragDrop(name, friend, group){
 
 function startWalter(){
 	$('#header').html("YOU'RE GODDAMN RIGHT!!");
+	$('#toHideDrag').hide();
 	$('#album').fadeIn(function(){
 		playSound('walter', endWalter);
 	});
@@ -269,6 +273,7 @@ function loadAlbum(){
 	$('#rightNav').click(showRight);
 	var friend = $(document).data('friend');
 	$('#imgMain').attr('src', 'data/images/' + friend.images[0].file);
+	friend.images[0].visited = true;
 	$('#imageShow').data('current', 0)
 }
 
@@ -293,13 +298,9 @@ function showLeft(){
 	$('#imgMain')[0].onload = animateImg;
 	$('#imgMain').attr('src', 'data/images/' + friend.images[currentIndex].file);
 	$('#imageShow').data('current', currentIndex)
-
-	/*$('#img_' + prevIndex).hide("slide", { direction: "right" }, 300, function(){
-	});
-		$('#img_' + currentIndex).show("slide", { direction: "left" }, 300);
-	$('#imageShow').data({'current': currentIndex});
-	*/
-	//();
+	friend.images[currentIndex].visited = true;
+	if(_.filter(friend.images, {visited: true}).length == friend.images.length)
+		activateInvitation();
 }
 
 function showRight(){
@@ -314,13 +315,16 @@ function showRight(){
 	$('#imgMain')[0].onload = animateImg;
 	$('#imgMain').attr('src', 'data/images/' + friend.images[currentIndex].file);
 	$('#imageShow').data('current', currentIndex)
-	/*
-	$('#img_' + prevIndex).hide("slide", { direction: "left" }, 300, function(){
-	});
-		$('#img_' + currentIndex).show("slide", { direction: "right" }, 300);
-	$('#imageShow').data({'current': currentIndex});
-	*/
-	//animateImg();
+	friend.images[currentIndex].visited = true;
+	if(_.filter(friend.images, {visited: true}).length == friend.images.length)
+		activateInvitation();
+}
+
+function activateInvitation(){
+	$('#header').html('Thou art now worthy of the ' + 
+		'<button id="showInvitation" class="clickMe btn btn-lg btn-primary btn-block">INVITE</button>' + 
+		'!');
+	$('#showInvitation').show().click(fncLoadInvitation);
 }
 
 function renderAttributes(oThis){
@@ -394,12 +398,16 @@ function playSound(audioId, callback){
 	var audios = $(document).data('audios');
 	var playingAudio = _.find(audios, {id:audios.current});
 	if(playingAudio != null)
-		playingAudio.audio.pause();
+		playingAudio.audio.volume = 0.4;
 	var currentAudio = _.find(audios, {id:audioId});
 	if(currentAudio != null){
 		currentAudio.audio.currentTime = currentAudio.start ? parseInt(currentAudio.start) : 0;
 		currentAudio.audio.play();
-		currentAudio.audio.onended = callback;
+		currentAudio.audio.onended = function(){
+			playingAudio.audio.volume = 1;
+			audios.current = playingAudio.id;
+			callback();
+		};
 		audios.current = audioId;
 	}
 }
@@ -419,4 +427,11 @@ function preloadImages(arrImages, callback){
 		preloadImages(arrImages, callback);
 	}
 	x.src = 'data/images/' + currentImg.file;
+}
+
+function fncLoadInvitation(){
+	$(document).data('audios')[0].audio.pause();
+	$('#album,#dragDrop').hide();
+	$('#mainInvitation').show()
+	videoEvent.target.playVideo();
 }

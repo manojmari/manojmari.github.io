@@ -12,6 +12,50 @@
     <script src="lib/lodash.js"></script>
     <script src="script/script.js"></script>
     <link href="lib/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <script>
+    var videoEvent;
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '60%',
+          width: '70%',
+          videoId: 'oxxpvSfYbMU',
+          playerVars:{'controls': 0},
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        videoEvent = event;
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if(event.data ==0){
+            $('#player').hide()
+            $('#lastFrame').css({'height': $('#player').height(), 'width': $('#player').width()}).show()
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
 </head>
 <body>
 <div id="mainBody" style="display:none">
@@ -38,6 +82,7 @@
     </div>
 
 	<div id="user-info" style="display:none">
+
 		<div class="container">
 	      <form class="form-signin">
 	        <h2 class="form-signin-heading">Enter Your Name</h2>
@@ -52,11 +97,12 @@
         
             </div>
         </div>
+        <div id="assortedWords"></div>
 	</div>
 
     <div id="dragDrop" style="display:none;position:absolute;height:100%;width:100%;overflow:hidden;">
         <div id="header">DO YOU REMEMBER THIS?!?</div>
-        <div class="" style="position:relative;display:table-cell;width:100%;top:50px">
+        <div id="toHideDrag" class="" style="position:relative;display:table-cell;width:100%;top:50px">
             <div id="draggableContainer" style="height: 100%;width: 270px;padding-left: 50px;padding-top: 50px;"></div>
                 <div id="dragDropResult" style="height: 100%; width: 270px; padding-left: 22px; padding-top: 90px;padding-right: 22px;display:none;">
                     <div id="dragResultText" style="-webkit-box-shadow: 10px 10px 16px 0px rgba(0,0,0,0.75);" class="alert alert-warning">
@@ -78,8 +124,16 @@
         <div style="position: relative;display:table-cell;width:100%;top:50px;z-index:100;">
             <div id="backscreen"></div>
             <div id="album_table">
-                <div id="leftNav" style="display:none"><div class="arrow-left"></div></div>
-                        <div id="rightNav"  style="display:none"><div class="arrow-right"></div></div>
+                <div id="leftNav" style="display:none">
+                    <div style="display:table-cell">
+                    <div class="arrow-left"></div>
+                    </div>
+                </div>
+                <div id="rightNav"  style="display:none">
+                    <div style="display:table-cell">
+                    <div class="arrow-right"></div>
+                    </div>
+                </div>
                 <div id="table_cell">
                     <img id="imgMain">
                 </div>
@@ -87,6 +141,13 @@
             </div>
 
         </div>
+    </div>
+    <div id="mainInvitation" style="z-index:100;display:none;">
+        <div style="display:table-cell;vertical-align:middle">
+            <div id="player"></div>
+            <div id="lastFrame" style="display:none;background-image:url('data/images/lastFrame.png')"></div>
+        </div>
+        <div style="position: absolute;height: 100%;width: 100%;left: 0px;top: 0px;"></div>
     </div>
 </div>
 <div id="preloader">
@@ -100,7 +161,7 @@
     <span>the endless travels to see each other's face...</span>
     <span>the never-ending tension for problems...we never had to face...</span>
     <span>but it was the everlasting hope that kept us going...</span>
-    <span>and the puzzle did fall into place!!</span>
+    <span>and the pieces of puzzle did fall into place!!</span>
 </div>
 </body>
 </html>

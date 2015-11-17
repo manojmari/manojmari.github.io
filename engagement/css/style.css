@@ -204,6 +204,7 @@ body {
     padding-top: 34%;
     font-size:40px;
     font-family:-webkit-pictograph;
+    cursor:pointer;
 }
 
 
@@ -326,7 +327,7 @@ body {
     height: 100%;
     width: 100%;
     background-color: black;
-    opacity: 0.8;
+    opacity: 0.4;
 }
 
 #imgMain{
@@ -434,4 +435,28 @@ body {
 }
 #ring:hover{
     background-size: 100%;
+}
+
+#mainInvitation{
+    position:absolute;
+    display: table;
+    height:100%;
+    width:100%;
+    background-color: black;
+    border: 18px solid white;
+}
+
+#player{
+    display: table-cell;
+    margin: auto;
+}
+
+#lastFrame{
+    margin: auto;
+    height:60%;
+    width: 60%;
+    background-size: 100% auto;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
