@@ -4,12 +4,32 @@ $(document).ready(function(){
 	
 });
 
+function basicCheckFail(){
+	var ua = navigator.userAgent;
+	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(ua);
+	var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+
+	if(isMobile){
+		$('body').html('<div id="police"></div><div id="speechBubble">Now what did i tell you about not using the mobile?!?!</div>');
+		return true;
+	}
+
+	if(!isChrome){
+		$('body').html('<div id="police"></div><div id="speechBubble">Didn\'t I warn you about using Chrome?!?!</div>');
+		return true;
+	}
+
+    return false;
+}
+
 function loadXmlAndContinue(){
 	$.ajax({
     type: "GET",
     url: "data/data.xml",
     dataType: "xml",
     success: function (xml) {
+    	if(basicCheckFail())
+    		return;
         var xmlDoc = $.parseXML(xml);
         $(document).data('xml', xml);
         createGroups($(xml).find('groups').children());

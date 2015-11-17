@@ -460,3 +460,25 @@ body {
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
+
+#speechBubble{
+    background-image: url('../data/images/speech.png');
+    height: 300px;
+    width: 387px;
+    background-size: 100% 100%;
+    left: 512px;
+    position: absolute;
+    padding: 71px 25px 91px 65px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+#police{
+    background-image: url('../data/images/police.png');
+    height: 512px;
+    width: 512px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
