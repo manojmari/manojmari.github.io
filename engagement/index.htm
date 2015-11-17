@@ -49,7 +49,9 @@
       function onPlayerStateChange(event) {
         if(event.data ==0){
             $('#player').hide()
-            $('#lastFrame').css({'height': $('#player').height(), 'width': $('#player').width()}).show()
+            $('#lastFrame').css({'height': $('#player').height(), 'width': $('#player').width()}).show();
+            if($('#player').width() > $('#player').height())
+                $('#lastFrame').css({'background-size':'auto 100%'});
         }
       }
       function stopVideo() {
