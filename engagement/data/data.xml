@@ -399,8 +399,10 @@
          <img file="akshayKauva.jpg" text="" />
          <img file="vivekKauva.jpg" text="" />
          <img file="shwetaAtishKauva.jpg" text="" />
+         <img file="mamaMuzzuKauva.jpg" text="" />
          <img file="borkarHouse.jpg" text="" />
          <img file="kauva3.jpg" text="" />
+         <img file="kauvaCheetos.jpg" text="" />
          <img file="kauvaCheeto.jpg" text="" />
          <img file="kauvaCheeto2.jpg" text="" />
          <img file="kauvaCheeto5.jpg" text="" />
@@ -418,6 +420,8 @@
          <img file="maheshKannan.jpg" text="" />
          <img file="borkarHouse.jpg" text="" />
          <img file="chunnu2.jpg" text="" />
+         <img file="kiranCheetos.jpg" text="" />
+         <img file="kiranCheetos2.jpg" text="" />
          <img file="shwetaAtishKauva.jpg" text="" />
          <img file="chunnu3.jpg" text="" />
          <img file="chagaBaga3.jpg" text="" />
@@ -431,6 +435,7 @@
          <img file="akshayAtish.jpg" text="" />
          <img file="annaAtish.jpg" text="" />
          <img file="atish.jpg" text="" />
+         <img file="atishCheetos.jpg" text="" />
          <img file="atish2.jpg" text="" />
          <img file="atishCheeto.jpg" text="" />
          <img file="atishCheeto2.jpg" text="" />
@@ -444,15 +449,22 @@
       </friend>
 
       <friend name="Rakesh Lakshminarayanan" group="chagaBaga" >
-         <img file="kauva.jpg" text="" />
          <img file="chagaBaga3.jpg" text="" />
+         <img file="mamaMuzzuKauva.jpg" text="" />
+         <img file="mama.jpg" text="" />
+         <img file="mama2.jpg" text="" />
+         <img file="mama3.jpg" text="" />
+         <img file="aishMamaVarun.jpg" text="" />
+         <img file="mama4.jpg" text="" />
       </friend>
       <friend name="Akshay Kapoor" group="chunnu" >
          <img file="akshayAtish.jpg" text="" />
          <img file="akshayBorkarKannan.jpg" text="" />
          <img file="akshayKannanShashankAtish.jpg" text="" />
+         <img file="akshayCheetos.jpg" text="" />
          <img file="akshayKauva.jpg" text="" />
          <img file="akshayManoj.jpg" text="" />
+         <img file="kapoorCheetos.jpg" text="" />
          <img file="borkarHouse.jpg" text="" />
          <img file="chunnu2.jpg" text="" />
          <img file="chunnu3.jpg" text="" />
@@ -461,16 +473,19 @@
          <img file="mahesh.jpg" text="" />
          <img file="maheshKannan.jpg" text="" />
          <img file="mahesh2.jpg" text="" />
+         <img file="aishMamaVarun.jpg" text="" />
          <img file="chagaBaga2.jpg" text="" />
          <img file="chagaBaga3.jpg" text="" />
+         <img file="aishVarun.jpg" text="" />
       </friend>
       <friend name="Varun chaga" group="chagaBaga" >
          <img file="annaVarun.jpg" text="" />
-         <img file="maheshVarun.jpg" text="" />
+         <img file="aishMamaVarun.jpg" text="" />
          <img file="chagaBaga2.jpg" text="" />
          <img file="chagaBaga3.jpg" text="" />
          <img file="kannanVarun.jpg" text="" />
          <img file="varun.jpg" text="" />
+         <img file="aishVarun.jpg" text="" />
       </friend>
 
       <friend name="Shashank Menon" group="chunnu" >
@@ -486,6 +501,7 @@
          <img file="anna.jpg" text="" />
          <img file="anna2.jpg" text="" />
          <img file="annaAtish.jpg" text="" />
+         <img file="annaDabba.jpg" text="" />
          <img file="annaVarun.jpg" text="" />
          <img file="chunnu2.jpg" text="" />
          <img file="chunnu3.jpg" text="" />
@@ -495,14 +511,22 @@
       <friend name="Niraj Borkar" group="chunnu" >
          <img file="akshayBorkarKannan.jpg" text="" />
          <img file="borkarHouse.jpg" text="" />
+         <img file="kauva3.jpg" text="" />
          <img file="chunnu2.jpg" text="" />
+         <img file="borkarCheetos.jpg" text="" />
+         <img file="chunnu2.jpg" text="" />
+         <img file="borkarCheetos2.jpg" text="" />
          <img file="chunnu3.jpg" text="" />
+         <img file="borkarCheetos3.jpg" text="" />
          <img file="borkarMe.jpg" text="" />
       </friend>
       <friend name="Muzzammil Bambot" group="chunnu" >
          <img file="borkarHouse.jpg" text="" />
          <img file="chunnu2.jpg" text="" />
-         <img file="chunnu3.jpg" text="" />
+         <img file="muzzu.jpg" text="" />
+         <img file="muzzu2.jpg" text="" />
+         <img file="muzzu3.jpg" text="" />
+         <img file="mamaMuzzuKauva.jpg" text="" />
       </friend>
 
    </friends>

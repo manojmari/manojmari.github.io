@@ -275,14 +275,13 @@ function startWalter(){
 }
 
 function endWalter(){
-	$('#header').html('Now you better ' + 
-		'<button id="" class="clickMe btn btn-lg btn-primary btn-block" onclick="loadAlbum()">CLICK ME</button>' + 
-		' and start remembering how we met!');
+	$('#header').html('Now, <button id="" class="clickMe btn btn-lg btn-primary btn-block" onclick="loadAlbum()">CLICK ME</button>' + 
+		' and better remember the days we spent!');
 }
 
 function loadAlbum(){
 	$('#imgMain').removeClass('walterNoBorder');
-	$('#header').html("Yeah, that's what I thought...now KEEP MOVING!!");
+	$('#header').html("Keep looking, your invitation is on its way...");
 	$('#leftNav,#rightNav').fadeIn();
 	$(document).bind('keydown',function(e){
 		if(e.keyCode == 37)
@@ -343,8 +342,7 @@ function showRight(){
 
 function activateInvitation(){
 	$('#header').html('Thou art now worthy of the ' + 
-		'<button id="showInvitation" class="clickMe btn btn-lg btn-primary btn-block">INVITE</button>' + 
-		'!');
+		'<button id="showInvitation" class="clickMe btn btn-lg btn-primary btn-block">INVITE</button>');
 	$('#showInvitation').show().click(fncLoadInvitation);
 }
 

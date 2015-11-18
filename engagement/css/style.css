@@ -80,7 +80,7 @@ body {
 .form-signin{
 	width: 500px;
 	margin: auto;
-	margin-top: 100px;
+	margin-top: 60px;
 }
 
 .form-signin-heading{
@@ -201,10 +201,10 @@ body {
     z-index: 3;
     color: aliceblue;
     padding-left: 10px;
-    padding-top: 34%;
     font-size:40px;
     font-family:-webkit-pictograph;
     cursor:pointer;
+    display: table;
 }
 
 
@@ -481,4 +481,11 @@ body {
     position: absolute;
     left: 0px;
     top: 0px;
+}
+#assortedWords{
+    background-image: url('../data/images/words.png');
+    height: 356px;
+    width: 500px;
+    background-size: 100% auto;
+    margin: auto;
 }
