@@ -70,6 +70,10 @@ function loadXmlAndContinue(){
 function loadInteractive(){
 	var friends = $(document).data('friends'),
 		friendNames = _.pluck(friends, 'name');	
+
+	friendNames = _.sortBy(friendNames, function(currName){
+		return currName.toLowerCase();
+	});
 	$( "#inputName" ).autocomplete({ source: friendNames, delay: 100 });
 	$('.form-signin').submit(submitName);
 	
