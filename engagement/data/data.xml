@@ -544,7 +544,7 @@
 
 
    <audios>
-      <audio id="giorni" url="i_giorni" />
+      <audio id="giorni" url="i_giorni" start="1" />
       <audio id="walter" url="heisen" repeat="false" start="2"/>
    </audios>
    
