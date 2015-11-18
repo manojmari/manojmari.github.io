@@ -31,6 +31,7 @@
          <img file="purva_6.jpg" text="" />
          <img file="purva_7.jpg" text="" />
           <img file="purva_8.jpg" text="" />
+          <img file="purva_9.jpg" text="" />
       </friend>
 
       <friend name="Ganesh" group="purva">
@@ -55,6 +56,7 @@
          <img file="spanda_6.jpg" text="" />
          <img file="spanda_7.jpg" text="" />
           <img file="spanda_8.jpg" text="" />
+          <img file="spanda_9.jpg" text="" />
       </friend>
 
       <friend name="Bala" group="lonavala">
@@ -67,7 +69,7 @@
              <img file="bala_6.jpg" text="" />
       </friend>
 
-      <friend name="Samaresh" group="steps">
+      <friend name="Samaresh aka Chammu" group="steps">
          <img file="chammu_0.jpg" text="" />
          <img file="chammu_1.jpg" text="" />
          <img file="chammu_2.jpg" text="" />
@@ -146,6 +148,7 @@
          <img file="prat_3.jpg" text="" />
           <img file="prat_4.jpg" text="" />
          <img file="prat_5.jpg" text="" />
+         <img file="prat_6.jpg" text="" />
          </friend>
 
          <friend name="Pritam" group="ILP">
@@ -251,6 +254,7 @@
          <img file="ramu_4.jpg" text="" />
          <img file="ramu_5.jpg" text="" />
          <img file="ramu_6.jpg" text="" />
+         <img file="ramu_7.jpg" text="" />
       </friend>
 
        <friend name="Ritika" group="football">
