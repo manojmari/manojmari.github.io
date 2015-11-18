@@ -286,6 +286,16 @@ body {
 #preloader img{
     margin: auto;
     display: table-cell;
+    margin-top: -77px;
+    margin-bottom: -66px;
+}
+
+.preloaderText{
+    display: table;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+    color: white;
 }
 
 #header{

@@ -198,7 +198,7 @@ function preloadAndStartDragDrop(name){
 		$(document).data('friend', friend);
 		preloadImages(_.clone(friend.images),function(){
 			loadDragDrop(name, friend, group);
-		})
+		}, true)
 }
 
 function loadDragDrop(name, friend, group){
@@ -435,7 +435,12 @@ function playSound(audioId, callback){
 	}
 }
 
-function preloadImages(arrImages, callback){
+function preloadImages(arrImages, callback, showText){
+	if(showText)
+		$('.preloaderText').show();
+	else
+		$('.preloaderText').hide();
+
 	$('#mainBody').hide();
 	$('#preloader').show();
 	if(_.isEmpty(arrImages)){
@@ -447,7 +452,7 @@ function preloadImages(arrImages, callback){
 	var currentImg = arrImages.pop();
 	var x = document.createElement('img');
 	x.onload = x.onerror = function(){
-		preloadImages(arrImages, callback);
+		preloadImages(arrImages, callback, showText);
 	}
 	x.src = 'data/images/' + currentImg.file;
 }
