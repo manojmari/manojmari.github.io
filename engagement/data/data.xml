@@ -261,9 +261,11 @@
          <img file="ritz_4.jpg" text="" />
          <img file="ritz_5.jpg" text="" />
              <img file="ritz_6.jpg" text="" />
+             <img file="ritz_7.jpg" text="" />
       </friend>
 
       <friend name="Vibhuti" group="football">
+        <img file="vibs_0.jpg" text="" />
          <img file="vibs_1.jpg" text="" />
          <img file="vibs_2.jpg" text="" />
          <img file="vibs_3.jpg" text="" />
@@ -290,6 +292,7 @@
          <img file="nandy_3.jpg" text="" />
          <img file="nandy_4.jpg" text="" />
           <img file="nandy_5.jpg" text="" />
+          <img file="nandy_6.jpg" text="" />
     
       </friend>
 
@@ -305,7 +308,7 @@
       <friend name="Rohan Hande" group="home">
          <img file="hande_0.jpg" text="" />
          <img file="hande_1.jpg" text="" />
-         <img file="hande_2.jpg" text="" />
+         
          <img file="hande_3.jpg" text="" />
          <img file="hande_4.jpg" text="" />
           <img file="hande_5.jpg" text="" />
