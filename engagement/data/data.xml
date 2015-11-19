@@ -387,7 +387,7 @@
 
 
       <friend name="Harini" group="harini">
-         <img file="harini_0.jpg" text="" />
+         
          <img file="harini_1.jpg" text="" />
          <img file="harini_2.jpg" text="" />
          <img file="harini_3.jpg" text="" />
@@ -398,14 +398,14 @@
       </friend>
 
        <friend name="Ashwin Nair" group="ashwin">
-         <img file="ashwin_0.jpg" text="" />
+         
          <img file="ashwin_1.jpg" text="" />
          <img file="ashwin_2.jpg" text="" />
          <img file="ashwin_3.jpg" text="" />
       </friend>
 
       <friend name="Rohan Kadam" group="kadam">
-         <img file="kadam_0.jpg" text="" />
+         
          <img file="kadam_1.jpg" text="" />
          <img file="kadam_2.jpg" text="" />
          <img file="kadam_3.jpg" text="" />
