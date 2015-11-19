@@ -422,8 +422,11 @@ function playSound(audioId, callback){
 		currentAudio.audio.currentTime = currentAudio.start ? parseInt(currentAudio.start) : 0;
 		currentAudio.audio.play();
 		currentAudio.audio.onended = function(){
-			playingAudio.audio.volume = 1;
+			if(playingAudio)
+				{
+					playingAudio.audio.volume = 1;
 			audios.current = playingAudio.id;
+		}
 			callback();
 		};
 		audios.current = audioId;
