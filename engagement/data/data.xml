@@ -412,7 +412,7 @@
          <img file="chagaBaga3.jpg" text="" />
       </friend>
 
-      <friend name="Kiran Kannan" group="chunnu" >
+      <friend name="Kiran Kannan" group="chunnu" other="Tandi Lagtey re,Mankatha da,My dear Talai, Tarudalai">
          <img file="akshayBorkarKannan.jpg" text="" />
          <img file="akshayKannanShashankAtish.jpg" text="" />
          <img file="kannan.jpg" text="" />
@@ -430,7 +430,7 @@
          <img file="kannanVarun.jpg" text="" />
       </friend>
 
-      <friend name="Atish" group="chunnu" >
+      <friend name="Atish" group="chunnu" other="Periods,Mr. Mood Swing,Sour relationship">
          <img file="akshayKannanShashankAtish.jpg" text="" />
          <img file="akshayAtish.jpg" text="" />
          <img file="annaAtish.jpg" text="" />
@@ -448,7 +448,7 @@
          <img file="chagaBaga3.jpg" text="" />
       </friend>
 
-      <friend name="Rakesh Lakshminarayanan" group="chagaBaga" >
+      <friend name="Rakesh Lakshminarayanan(Maams)" group="chagaBaga" other="Maaams Shinoda,Aand khau,Mr. Tony stark,Aaak thu">
          <img file="chagaBaga3.jpg" text="" />
          <img file="mamaMuzzuKauva.jpg" text="" />
          <img file="mama.jpg" text="" />
@@ -457,7 +457,7 @@
          <img file="aishMamaVarun.jpg" text="" />
          <img file="mama4.jpg" text="" />
       </friend>
-      <friend name="Akshay Kapoor" group="chunnu" >
+      <friend name="Akshay Kapoor" group="chunnu" other="kaprya,Mr. Jihad,Satra ka chhava,Vegas 2017">
          <img file="akshayAtish.jpg" text="" />
          <img file="akshayBorkarKannan.jpg" text="" />
          <img file="akshayKannanShashankAtish.jpg" text="" />
@@ -469,7 +469,7 @@
          <img file="chunnu2.jpg" text="" />
          <img file="chunnu3.jpg" text="" />
       </friend>
-      <friend name="Mahesh Panjwani" group="chagaBaga" >
+      <friend name="Mahesh Panjwani" group="chagaBaga" other="">
          <img file="mahesh.jpg" text="" />
          <img file="maheshKannan.jpg" text="" />
          <img file="mahesh2.jpg" text="" />
@@ -478,7 +478,7 @@
          <img file="chagaBaga3.jpg" text="" />
          <img file="aishVarun.jpg" text="" />
       </friend>
-      <friend name="Varun chaga" group="chagaBaga" >
+      <friend name="Varun chaga" group="chagaBaga"  other="Kai bo che,chalo lonavla,Old Monk">
          <img file="annaVarun.jpg" text="" />
          <img file="aishMamaVarun.jpg" text="" />
          <img file="chagaBaga2.jpg" text="" />
@@ -488,7 +488,7 @@
          <img file="aishVarun.jpg" text="" />
       </friend>
 
-      <friend name="Shashank Menon" group="chunnu" >
+      <friend name="Shashank Menon" group="chunnu"  other="Dimmu,Ooo dil ye..,itna pagal nai banne ka,Dimmu kasam idhar click kar">
          <img file="akshayKannanShashankAtish.jpg" text="" />
          <img file="chunnu2.jpg" text="" />
          <img file="chunnu3.jpg" text="" />
@@ -497,7 +497,7 @@
          <img file="shashankAnna.jpg" text="" />
          <img file="shashankAnnaCheeto.jpg" text="" />
       </friend>
-      <friend name="Kiran Nair" group="chunnu" >
+      <friend name="Kiran Nair" group="chunnu"  other="Anna,Junglee,Gorilla,Jholer">
          <img file="anna.jpg" text="" />
          <img file="anna2.jpg" text="" />
          <img file="annaAtish.jpg" text="" />
@@ -508,7 +508,7 @@
          <img file="shashankAnna.jpg" text="" />
          <img file="shashankAnnaCheeto.jpg" text="" />
       </friend>
-      <friend name="Niraj Borkar" group="chunnu" >
+      <friend name="Niraj Borkar" group="chunnu"  other="Mr. Borkar,Mr. Beat,Lonavla,Kuch banne ka hai yaar">
          <img file="akshayBorkarKannan.jpg" text="" />
          <img file="borkarHouse.jpg" text="" />
          <img file="kauva3.jpg" text="" />
@@ -520,10 +520,11 @@
          <img file="borkarCheetos3.jpg" text="" />
          <img file="borkarMe.jpg" text="" />
       </friend>
-      <friend name="Muzzammil Bambot" group="chunnu" >
+      <friend name="Muzzammil Bambot" group="chunnu"  other="Lonavla,Cmon yaar,Kuch banne ka hai yaar,drink kisne banaya us raat">
          <img file="borkarHouse.jpg" text="" />
          <img file="chunnu2.jpg" text="" />
          <img file="muzzu.jpg" text="" />
+         <img file="vivek_4.jpg" text="" />
          <img file="muzzu2.jpg" text="" />
          <img file="muzzu3.jpg" text="" />
          <img file="mamaMuzzuKauva.jpg" text="" />
