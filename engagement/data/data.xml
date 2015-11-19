@@ -18,6 +18,10 @@
          <group id="disha" file="dishaVivek.jpg" />
          <group id="chunnu" file="chunnu.jpg" />
          <group id="chagaBaga" file="chagaBaga.jpg" />
+         <group id="anusha" file="anusha.jpg" />
+          <group id="harini" file="harini.jpg" />
+           <group id="ashwini" file="ashwini.jpg" />
+           <group id="shiva" file="shiva.jpg" />
     </groups>
    <friends>
 
@@ -342,6 +346,55 @@
           <img file="saumil_5.jpg" text="" />
           <img file="saumil_6.jpg" text="" />
       </friend>
+
+
+ <friend name="Anusha" group="anusha">
+         <img file="anusha_0.jpg" text="" />
+         <img file="anusha_1.jpg" text="" />
+         <img file="anusha_2.jpg" text="" />
+         <img file="anusha_3.jpg" text="" />
+         <img file="anusha_4.jpg" text="" />
+          <img file="anusha_5.jpg" text="" />
+          <img file="anusha_6.jpg" text="" />
+          <img file="anusha_7.jpg" text="" />
+                    <img file="anusha_8.jpg" text="" />
+                         <img file="anusha_9.jpg" text="" />
+      </friend>
+
+<friend name="Ashwini" group="ashwini">
+         <img file="ashwini_0.jpg" text="" />
+         <img file="ashwini_1.jpg" text="" />
+         <img file="ashwini_2.jpg" text="" />
+         <img file="ashwini_3.jpg" text="" />
+         <img file="ashwini_4.jpg" text="" />
+          <img file="ashwini_5.jpg" text="" />
+          <img file="ashwini_6.jpg" text="" />
+          <img file="ashwini_7.jpg" text="" />
+                    <img file="ashwini_8.jpg" text="" />
+                         <img file="ashwini_9.jpg" text="" />
+      </friend>
+
+      <friend name="Shiva" group="shiva">
+         <img file="shiva_0.jpg" text="" />
+         <img file="shiva_1.jpg" text="" />
+         <img file="shiva_2.jpg" text="" />
+         <img file="shiva_3.jpg" text="" />
+         <img file="shiva_4.jpg" text="" />
+          <img file="shiva_5.jpg" text="" />
+          </friend>
+
+
+                    <friend name="Harini" group="harini">
+         <img file="harini_0.jpg" text="" />
+         <img file="harini_1.jpg" text="" />
+         <img file="harini_2.jpg" text="" />
+         <img file="harini_3.jpg" text="" />
+         <img file="harini_4.jpg" text="" />
+          <img file="harini_5.jpg" text="" />
+          <img file="harini_6.jpg" text="" />
+
+      </friend>
+
 
        <friend name="Shaunak" group="all">
          <img file="shaunak_0.jpg" text="" />
