@@ -386,7 +386,7 @@
           </friend>
 
 
-                    <friend name="Harini" group="harini">
+      <friend name="Harini" group="harini">
          <img file="harini_0.jpg" text="" />
          <img file="harini_1.jpg" text="" />
          <img file="harini_2.jpg" text="" />
@@ -406,8 +406,8 @@
 
       <friend name="Rohan Kadam" group="kadam">
          <img file="kadam_0.jpg" text="" />
-         <img file="kadam_1.png" text="" />
-         <img file="kadam_2.png" text="" />
+         <img file="kadam_1.jpg" text="" />
+         <img file="kadam_2.jpg" text="" />
          <img file="kadam_3.jpg" text="" />
          <img file="kadam_4.jpg" text="" />
       </friend>
