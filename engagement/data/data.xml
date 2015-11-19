@@ -22,6 +22,8 @@
           <group id="harini" file="harini.jpg" />
            <group id="ashwini" file="ashwini.jpg" />
            <group id="shiva" file="shiva.jpg" />
+              <group id="ashwin" file="ashwin.jpg" />
+                 <group id="kadam" file="kadam.jpg" />
     </groups>
    <friends>
 
@@ -393,6 +395,21 @@
           <img file="harini_5.jpg" text="" />
           <img file="harini_6.jpg" text="" />
 
+      </friend>
+
+       <friend name="Ashwin Nair" group="ashwin">
+         <img file="ashwin_0.jpg" text="" />
+         <img file="ashwin_1.jpg" text="" />
+         <img file="ashwin_2.jpg" text="" />
+         <img file="ashwin_3.jpg" text="" />
+      </friend>
+
+      <friend name="Rohan Kadam" group="kadam">
+         <img file="kadam_0.jpg" text="" />
+         <img file="kadam_1.jpg" text="" />
+         <img file="kadam_2.jpg" text="" />
+         <img file="kadam_3.jpg" text="" />
+         <img file="kadam_4.jpg" text="" />
       </friend>
 
 
