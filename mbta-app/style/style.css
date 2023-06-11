@@ -65,3 +65,18 @@ button:active {
 .schedule-buttons {
 	text-align: center;
 }
+
+.row {
+	width: 100%;
+}
+
+.cell {
+    border: 3px solid;
+    text-align: center;
+    min-height: 20px;
+    padding: 2px;
+}
+
+.division {
+	height: 25px;
+}

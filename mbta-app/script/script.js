@@ -200,11 +200,11 @@ function loadHtml() {
 			return waitingTime + buildCell(tripRoute.trip, tripRoute.route, global.expanded);
 		}).join("");
 
-		return `<tr><td colspan='${arrTripRoutes.length * 2 - 1}'>
+		return `<div class='row'><div class='cell path-title' colspan='${arrTripRoutes.length * 2 - 1}'>
 			<button onclick='savePath(${index})'>Save Path</button>
-			Total trip time: ${getTotalTripTime(arrTripRoutes)}</td>
-		</tr><tr>${rowContent}</tr>`
-	}).join("");
+			Total trip time: ${getTotalTripTime(arrTripRoutes)}</div>
+		</div><div class='row'>${rowContent}</div>`
+	}).join("<div class='division'></div>");
 
 	$("#routes-table").html(tripRows);
 
@@ -216,7 +216,7 @@ function loadHtml() {
 		return buildCell(tripRoute.trip, tripRoute.route, true);
 	}).join("");
 
-	$("#saved-route-table").html(`<tr>${savedRowContent}</tr>`);
+	$("#saved-route-table").html(`<div class='row'>${savedRowContent}</div>`);
 }
 
 function findCommonStop(stops1, stops2) {
@@ -240,7 +240,7 @@ function buildCell(stops, route, expanded) {
 				.value();
 		}
 	}
-	return `<td style='background-color:#${_.get(route, 'data.attributes.color')};'>${cellHtml}</td>`;
+	return `<div class='cell' style='background-color:#${_.get(route, 'data.attributes.color')};'>${cellHtml}</div>`;
 }
 
 function buildArrow() {
@@ -264,13 +264,13 @@ function getRemainingDuration(time) {
 
 function getWaitingTime(prevTripRoute, tripRoute) {
 	if (prevTripRoute.trip.length == 0 || tripRoute.trip.length == 0) {
-		return '<td></td>';
+		return `<div class='cell'>--O--</div>`;
 	}
 
 	const tripDepartureTime = tripRoute.trip[0].departureTime;
 	const prevTripArrivalTime = prevTripRoute.trip[prevTripRoute.trip.length - 1].arrivalTime;
 
-	return `<td><span>wait ${moment.duration(tripDepartureTime.diff(prevTripArrivalTime)).format("m [min] s [sec]")}</span></td>`;
+	return `<div class='cell'><span>wait ${moment.duration(tripDepartureTime.diff(prevTripArrivalTime)).format("m [min] s [sec]")}</span></div>`;
 }
 
 function getTotalTripTime(arrTripRoutes) {
