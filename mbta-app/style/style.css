@@ -1,0 +1,46 @@
+
+table {
+	margin: auto;
+}
+
+table tr td {
+	border: 3px solid;
+	max-width: 550px;
+	min-width: 100px;
+	text-align: center;
+}
+
+.arrow:before {
+	content: "\01F822";
+	font-size: 20px;
+}
+
+.station-name:after {
+	content: "\00a0";
+}
+
+.target:before {
+	content: "\25CE";
+}
+
+.target-station {
+	display: inline-block;
+}
+
+.no-connections:before, .no-connections:after {
+	content: "\00d7";
+}
+
+.time-remaining {
+	font: small-caption;
+	color: floralwhite;
+	font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    background-color: mediumvioletred;
+    border-radius: 9px;
+    color: ivory;
+    font-family: monospace;
+}
