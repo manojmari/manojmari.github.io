@@ -6,12 +6,12 @@ table {
 table tr td {
 	border: 3px solid;
 	max-width: 550px;
-	min-width: 100px;
+	min-width: 30px;
 	text-align: center;
 }
 
 .arrow:before {
-	content: "\01F822";
+	content: "\2192";
 	font-size: 20px;
 }
 
@@ -25,6 +25,7 @@ table tr td {
 
 .target-station {
 	display: inline-block;
+	text-wrap: nowrap;
 }
 
 .no-connections:before, .no-connections:after {
@@ -43,4 +44,24 @@ h1 {
     border-radius: 9px;
     color: ivory;
     font-family: monospace;
+}
+
+h2 {
+	text-align: center;
+}
+
+button {
+    background-color: black;
+    color: ivory;
+    padding: 10px;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+button:active {
+	background-color: darkslategray;
+}
+
+.schedule-buttons {
+	text-align: center;
 }

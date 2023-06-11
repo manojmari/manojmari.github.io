@@ -13,7 +13,17 @@
 	</head>
 	<body onload="bodyLoaded()">
 		<h1>By-The-Way</h1>
+		<div class="schedule-buttons">
+			<button onclick="changeSchedule(0)">Morning</button>
+			<button onclick="changeSchedule(1)">Evening</button>
+			<button onclick="toggleExpand()">Toggle Expanded View</button>
+		</div>
 		<div id="routes">
+			<h2>Saved Path</h2>
+			<table id="saved-route-table">
+			</table>
+
+			<h2>All upcoming schedules</h2>
 			<table id="routes-table">
 			</table>
 		</div>

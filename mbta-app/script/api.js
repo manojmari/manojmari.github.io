@@ -2,7 +2,6 @@
 async function getPredictionsByStop(route, direction, stop) {
 	return new Promise(function(resolve, reject) {
 		$.get(getUrlWithKey(`https://api-v3.mbta.com/predictions?page%5Blimit%5D=10&sort=departure_time&filter%5Bdirection_id%5D=${direction}&filter%5Bstop%5D=${stop}&filter%5Broute%5D=${route}`), (data) => {
-			console.log('getPredictionsByStop', route, direction, stop);
 			resolve(data);
 		});
 	});
@@ -10,20 +9,24 @@ async function getPredictionsByStop(route, direction, stop) {
 
 // 
 
-async function getPredictionsByTrip(route, direction, trip) {
+async function getPredictionsByTrip(route, direction, tripId) {
 	return new Promise(function(resolve, reject) {
-		$.get(getUrlWithKey(`https://api-v3.mbta.com/predictions?sort=stop_sequence&filter%5Bdirection_id%5D=${direction}&filter%5Broute%5D=${route}&filter%5Btrip%5D=${trip}`), (data) => {
-			console.log('getPredictionsByTrip', route, direction, trip);
-			data = _.chain(data)
+		$.get(getUrlWithKey(`https://api-v3.mbta.com/predictions?sort=stop_sequence&filter%5Bdirection_id%5D=${direction}&filter%5Broute%5D=${route}&filter%5Btrip%5D=${tripId}`), (data) => {
+			const trip = _.chain(data)
 				.get('data')
 				.map(entry => ({
-					stop: _.get(entry, 'relationships.stop.data.id'), 
-					vehicle: _.get(entry, 'relationships.vehicle.data.id'), 
+					stop: _.get(entry, 'relationships.stop.data.id'),
+					vehicle: _.get(entry, 'relationships.vehicle.data.id'),
 					arrivalTime: moment(_.get(entry, 'attributes.arrival_time')), 
 					departureTime: moment(_.get(entry, 'attributes.departure_time'))
 				}))
 				.value();
-			resolve(data);
+			resolve({
+				tripId,
+				direction,
+				route,
+				trip
+			});
 		});
 	});
 }
@@ -31,7 +34,6 @@ async function getPredictionsByTrip(route, direction, trip) {
 async function getChildStops(stop) {
 	return new Promise(function(resolve, reject) {
 		$.get(getUrlWithKey(`https://api-v3.mbta.com/stops/${stop}?include=child_stops`), (data) => {
-			console.log('getChildStops', stop);
 			data = _.chain(data)
 				.get('data.relationships.child_stops.data')
 				.reduce((acc, entry) => {
@@ -44,10 +46,22 @@ async function getChildStops(stop) {
 	});
 }
 
+// 
+
+async function getStopById(stopId) {
+	return new Promise(function(resolve, reject) {
+		$.get(getUrlWithKey(`https://api-v3.mbta.com/stops/${stopId}`), (data) => {
+			resolve({
+				id: stopId,
+				name: _.get(data, 'data.attributes.name')
+			});
+		});
+	});
+}
+
 async function getStops(route, direction) {
 	return new Promise(function(resolve, reject) {
 		$.get(getUrlWithKey(`https://api-v3.mbta.com/stops?filter%5Bdirection_id%5D=${direction}&filter%5Broute%5D=${route}`), (data) => {
-			console.log(data);
 			data = _.chain(data)
 				.get('data')
 				.map(entry => ({id: entry.id, name: entry.attributes.name}))
@@ -60,7 +74,6 @@ async function getStops(route, direction) {
 async function getRoute(route) {
 	return new Promise(function(resolve, reject) {
 		$.get(getUrlWithKey(`https://api-v3.mbta.com/routes/${route}`), (data) => {
-			console.log(data);
 			resolve(data);
 		});
 	});
@@ -69,7 +82,6 @@ async function getRoute(route) {
 async function getSchedule() {
 	return new Promise(function(resolve, reject) {
 		$.get(getUrlWithKey(`https://api-v3.mbta.com/stops?filter%5Bdirection_id%5D=${direction}&filter%5Broute%5D=${route}`), (data) => {
-			console.log(data);
 			resolve(data);
 		});
 	});
