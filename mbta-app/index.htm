@@ -13,17 +13,19 @@
 	</head>
 	<body onload="bodyLoaded()">
 		<h1>By-The-Way</h1>
-		<div class="schedule-buttons">
-			<button onclick="changeSchedule(0)">Morning</button>
-			<button onclick="changeSchedule(1)">Evening</button>
-			<button onclick="toggleExpand()">Toggle Expanded View</button>
-		</div>
 		<div id="routes">
 			<h2>Saved Path</h2>
 			<div id="saved-route-table">
+				<h3>--Not Selected--</h3>
 			</div>
 
 			<h2>All upcoming schedules</h2>
+			<div class="schedule-buttons">
+				<button onclick="changeSchedule(0)">Morning</button>
+				<button onclick="changeSchedule(1)">Evening</button>
+				<button onclick="toggleExpand()">Toggle Expanded View</button>
+			</div>
+			<div class="division"></div>
 			<div id="routes-table">
 			</div>
 		</div>

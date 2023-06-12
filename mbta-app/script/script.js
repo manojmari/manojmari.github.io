@@ -120,7 +120,7 @@ async function buildSchedules(arrStopRoutes) {
 			let atleastOnePath = 0;
 			_.each(stopRoute.tripDataList, (tripData) => {
 				newTripMatrix.push([{
-					trip: tripData.trip,
+					...tripData,
 					route: stopRoute.route
 				}]);
 				atleastOnePath = true;

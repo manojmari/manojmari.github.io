@@ -46,7 +46,7 @@ h1 {
     font-family: monospace;
 }
 
-h2 {
+h2, h3 {
 	text-align: center;
 }
 
@@ -78,5 +78,5 @@ button:active {
 }
 
 .division {
-	height: 25px;
+	height: 55px;
 }
