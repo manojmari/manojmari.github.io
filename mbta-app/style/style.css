@@ -46,7 +46,15 @@ h1 {
     font-family: monospace;
 }
 
-h2, h3 {
+h2 {
+	text-align: center;
+    background-color: darkslategrey;
+    border-radius: 9px;
+    color: ivory;
+    font-size: 22px;
+}
+
+h3 {
 	text-align: center;
 }
 
@@ -58,8 +66,9 @@ button {
     cursor: pointer;
 }
 
-button:active {
-	background-color: darkslategray;
+.button-selected {
+	background-color: ghostwhite;
+    color: black;
 }
 
 .schedule-buttons {

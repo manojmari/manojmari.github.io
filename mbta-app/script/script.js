@@ -29,21 +29,27 @@ const schedule = [
 let global = {
 	apiKey: 'b5fbff97f63a4cd885840a66abff73bc',
 	stopMap: {},
-	overallTrip: schedule[1],
 	expanded: false
 };
 
 function changeSchedule(index) {
 	global.overallTrip = schedule[index];
+	$('.schedule-button').removeClass('button-selected');
+	$(`.schedule-button-${index}`).addClass('button-selected');
 	loadCommute();
 }
 
 function toggleExpand() {
 	global.expanded = !global.expanded;
+	if (global.expanded) {
+		$(`.expand-toggle`).addClass('button-selected');
+	} else {
+		$(`.expand-toggle`).removeClass('button-selected');
+	}
 }
 
 async function bodyLoaded() {
-	loadCommute();
+	changeSchedule(1);
 	setInterval(loadCommute, 10000);
 	setInterval(loadHtml, 500);
 }
@@ -227,7 +233,7 @@ function findCommonStop(stops1, stops2) {
 
 function buildCell(stops, route, expanded) {
 	let cellHtml;
-	// stops = [{name: 'My Station', departureTime: moment(1686375854241)}];
+	stops = _.filter(stops, (stop) => stop.departureTime.isAfter(moment()));
 	if (stops.length == 0) {
 		cellHtml = "<span class='no-connections'>No connections</span>";
 	} else {
