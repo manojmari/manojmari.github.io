@@ -64,7 +64,12 @@ async function getStops(route, direction) {
 		$.get(getUrlWithKey(`https://api-v3.mbta.com/stops?filter%5Bdirection_id%5D=${direction}&filter%5Broute%5D=${route}`), (data) => {
 			data = _.chain(data)
 				.get('data')
-				.map(entry => ({id: entry.id, name: entry.attributes.name}))
+				.map(entry => ({
+					id: entry.id, 
+					name: entry.attributes.name,
+					latitude: entry.attributes.latitude,
+					longitude: entry.attributes.longitude
+				}))
 				.value();
 			resolve(data);
 		});

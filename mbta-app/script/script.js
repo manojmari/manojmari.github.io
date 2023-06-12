@@ -63,17 +63,17 @@ async function loadCommute() {
 		const route = await getRoute(routeDirectionConfig.routeId);
 		let stops = await getStops(routeDirectionConfig.routeId, routeDirectionConfig.direction);
 		if (i == 0) {
-			stops = removeTrailingStops(stops, {id: overallTrip.last});
+			stops = removeTrailingStops(stops, [{id: overallTrip.last}]);
 		}
 
 		if (i != 0) {
-			const commonStop = findCommonStop(arrStopRoutes[i - 1].stops, stops);
-			arrStopRoutes[i - 1].stops = removePreceedingStops(arrStopRoutes[i - 1].stops, commonStop);
-			stops = removeTrailingStops(stops, commonStop);
+			const commonStops = findCommonStop(stops, arrStopRoutes[i - 1].stops);
+			arrStopRoutes[i - 1].stops = removePreceedingStops(arrStopRoutes[i - 1].stops, commonStops);
+			stops = removeTrailingStops(stops, commonStops);
 		}
 
 		if (i == overallTrip.path.length - 1) {
-			stops = removePreceedingStops(stops, {id: overallTrip.start});
+			stops = removePreceedingStops(stops, [{id: overallTrip.start}]);
 		}
 
 		arrStopRoutes.push({
@@ -143,6 +143,13 @@ async function buildSchedules(arrStopRoutes) {
 				_.each(stopRoute.tripDataList, (tripData) => {
 					const {trip} = tripData;
 					const previousTrip = tripRow[0].trip.length == 0 ? undefined : tripRow[0].trip[0];
+					const allPreviousUndefined = !_.some(tripRow, (tripCell) => tripCell.trip.length != 0);
+					if (previousTrip == undefined && !allPreviousUndefined) {
+						return;
+					}
+					if (trip.length == 0) {
+						return;
+					}
 					if (previousTrip == undefined || (previousTrip.departureTime.isValid() 
 						&& trip[trip.length - 1].arrivalTime.isValid()
 						&& previousTrip.departureTime.isAfter(trip[trip.length - 1].arrivalTime))) {
@@ -226,14 +233,44 @@ function loadHtml() {
 }
 
 function findCommonStop(stops1, stops2) {
-	return _.find(stops2, (entry2) => {
-		return _.some(stops1, {'id': entry2.id});
+	let index1 = -1, index2 = -1;
+	_.each(stops2, (entry2, inx) => {
+		index1 = _.findIndex(stops1,
+			(entry1) => entry1.id == entry2.id || calcCrow(entry1.latitude, entry1.longitude, entry2.latitude, entry2.longitude) < 0.05);
+		if (index1 != -1) {
+			index2 = inx;
+			return false;
+		}
 	});
+
+	if (index1 != -1) {
+		return [stops1[index1], stops2[index2]];
+	}
+
+	return [];
+}
+
+function calcCrow(lat1, lon1, lat2, lon2) {
+  var R = 6371; // km
+  var dLat = toRad(lat2-lat1);
+  var dLon = toRad(lon2-lon1);
+  var lat1 = toRad(lat1);
+  var lat2 = toRad(lat2);
+
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c;
+  return d;
+}
+
+function toRad(Value) {
+    return Math.abs(Value * Math.PI / 180);
 }
 
 function buildCell(stops, route, expanded) {
 	let cellHtml;
-	stops = _.filter(stops, (stop) => stop.departureTime.isAfter(moment()));
+	stops = _.filter(stops, (stop) => !stop.departureTime.isValid() || stop.departureTime.isAfter(moment()));
 	if (stops.length == 0) {
 		cellHtml = "<span class='no-connections'>No connections</span>";
 	} else {
@@ -265,7 +302,7 @@ function getRemainingDuration(time) {
 	if (!time.isValid()) {
 		return '';
 	}
-	return `(${moment.duration(time.diff(moment())).format("m [min] s [sec]")})`;
+	return `(${time.format('hh:mm')} - ${moment.duration(time.diff(moment())).format("m [min] s [sec]")})`;
 }
 
 function getWaitingTime(prevTripRoute, tripRoute) {
@@ -281,27 +318,33 @@ function getWaitingTime(prevTripRoute, tripRoute) {
 
 function getTotalTripTime(arrTripRoutes) {
 	let firstTime = _.chain(arrTripRoutes).find(tripRoute => tripRoute.trip != 0)
-			.get('trip').first().get('arrivalTime').value();
+			.get('trip').first().get('departureTime').value();
 	let lastTime = _.chain(arrTripRoutes).findLast(tripRoute => tripRoute.trip != 0)
 			.get('trip').last().get('arrivalTime').value();
 
 	return moment.duration(lastTime.diff(firstTime)).format("m [min] s [sec]");
 }
 
-function removePreceedingStops(stops, stop) {
-	const index = _.findIndex(stops, stop);
-	if (index == -1) {
-		return stops;
+function removePreceedingStops(stops, commonStops) {
+	for (let i = 0; i < commonStops.length; i++) {
+		const index = _.findIndex(stops, commonStops[i]);
+		if (index == -1) {
+			continue;
+		}
+		return _.takeRight(stops, stops.length - index);
 	}
-	return _.takeRight(stops, stops.length - index);
+	return stops;
 }
 
-function removeTrailingStops(stops, stop) {
-	const index = _.findIndex(stops, stop);
-	if (index == -1) {
-		return stops;
+function removeTrailingStops(stops, commonStops) {
+	for (let i = 0; i < commonStops.length; i++) {
+		const index = _.findIndex(stops, commonStops[i]);
+		if (index == -1) {
+			continue;
+		}
+		return _.take(stops, index + 1);
 	}
-	return _.take(stops, index + 1);
+	return stops;
 }
 
 function savePath(index) {
