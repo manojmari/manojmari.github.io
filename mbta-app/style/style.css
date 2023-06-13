@@ -71,7 +71,7 @@ button {
     color: black;
 }
 
-.schedule-buttons {
+.button-container {
 	text-align: center;
 }
 
@@ -88,4 +88,8 @@ button {
 
 .division {
 	height: 55px;
+}
+
+.division-small {
+	height: 25px;
 }

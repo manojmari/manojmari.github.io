@@ -29,7 +29,8 @@ const schedule = [
 let global = {
 	apiKey: 'b5fbff97f63a4cd885840a66abff73bc',
 	stopMap: {},
-	expanded: false
+	expanded: false,
+	endToEnd: true
 };
 
 function changeSchedule(index) {
@@ -48,7 +49,33 @@ function toggleExpand() {
 	}
 }
 
+function clearSaved() {
+	global.savedPath = undefined;
+}
+
+function toggleEndToEnd() {
+	global.endToEnd = !global.endToEnd;
+	if (global.endToEnd) {
+		$(`.e2e-toggle`).addClass('button-selected');
+	} else {
+		$(`.e2e-toggle`).removeClass('button-selected');
+	}
+}
+
+function storeGlobal() {
+	if (global.savedPath)
+		localStorage.setItem('global.savedPath', JSON.stringify(global.savedPath));
+}
+
+function retrieveGlobal() {
+	var retrievedGlobal = localStorage.getItem('global.savedPath');
+	if (retrievedGlobal) {
+		global.savedPath = _.map(JSON.parse(retrievedGlobal), (tripRoute) => ({...tripRoute, trip: []}));
+	}
+}
+
 async function bodyLoaded() {
+	retrieveGlobal();
 	changeSchedule(1);
 	setInterval(loadCommute, 10000);
 	setInterval(loadHtml, 500);
@@ -201,10 +228,15 @@ async function getStopData(stopId) {
 }
 
 function loadHtml() {
+	storeGlobal();
 	if (!global.tripMatrix) {
 		return;
 	}
-	var tripRows = _.map(global.tripMatrix, (arrTripRoutes, index) => {
+
+	var tripRows = _.chain(global.tripMatrix).map((arrTripRoutes, index) => {
+		if (global.endToEnd && (arrTripRoutes[0].trip.length == 0 || arrTripRoutes[arrTripRoutes.length - 1].trip.length == 0)) {
+			return;
+		}
 		const rowContent = _.map(arrTripRoutes, (tripRoute, index) => {
 			var waitingTime = '';
 			if (index != 0) {
@@ -217,11 +249,12 @@ function loadHtml() {
 			<button onclick='savePath(${index})'>Save Path</button>
 			Total trip time: ${getTotalTripTime(arrTripRoutes)}</div>
 		</div><div class='row'>${rowContent}</div>`
-	}).join("<div class='division'></div>");
+	}).compact().join("<div class='division'></div>").value();
 
 	$("#routes-table").html(tripRows);
 
 	if (!global.savedPath) {
+		$("#saved-route-table").html('');
 		return;
 	}
 

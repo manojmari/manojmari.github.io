@@ -15,17 +15,22 @@
 		<h1>By-The-Way</h1>
 		<div id="routes">
 			<h2>Saved Path</h2>
+			<div class="button-container">
+				<button class="" onclick="clearSaved()">Clear</button>
+			</div>
+			<div class="division-small"></div>
 			<div id="saved-route-table">
 				<h3>--Not Selected--</h3>
 			</div>
 
 			<h2>All upcoming schedules</h2>
-			<div class="schedule-buttons">
+			<div class="button-container">
 				<button class="schedule-button schedule-button-0" onclick="changeSchedule(0)">Morning</button>
 				<button class="schedule-button schedule-button-1" onclick="changeSchedule(1)">Evening</button>
-				<button class="expand-toggle" onclick="toggleExpand()">Toggle Expanded View</button>
+				<button class="e2e-toggle button-selected" onclick="toggleEndToEnd()">All Connections</button>
+				<button class="expand-toggle" onclick="toggleExpand()">Expand Stops</button>
 			</div>
-			<div class="division"></div>
+			<div class="division-small"></div>
 			<div id="routes-table">
 			</div>
 		</div>
