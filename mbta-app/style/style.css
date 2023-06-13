@@ -48,10 +48,12 @@ h1 {
 
 h2 {
 	text-align: center;
-    background-color: darkslategrey;
-    border-radius: 9px;
+    background-color: black;
+    border-radius: 3px;
     color: ivory;
-    font-size: 22px;
+    font-size: 20px;
+    padding: 8px;
+    opacity: 0.6;
 }
 
 h3 {
@@ -92,4 +94,8 @@ button {
 
 .division-small {
 	height: 25px;
+}
+
+.station-of-interest {
+	background-color: darkcyan;
 }

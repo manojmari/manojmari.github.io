@@ -65,6 +65,8 @@ function toggleEndToEnd() {
 function storeGlobal() {
 	if (global.savedPath)
 		localStorage.setItem('global.savedPath', JSON.stringify(global.savedPath));
+	else
+		localStorage.removeItem('global.savedPath');
 }
 
 function retrieveGlobal() {
@@ -327,12 +329,17 @@ function buildStopHtml(stop) {
 	return `<div class="target-station">
 		<span class="target"></span>
 		<span class="station-name">${stop.name}</span>
-		<span class="time-remaining">${getRemainingDuration(stop.departureTime)}</span>
+		<span class="time-remaining">${getRemainingDuration(stop)}</span>
 	</div>`;
 }
 
-function getRemainingDuration(time) {
-	if (!time.isValid()) {
+function getRemainingDuration(stop) {
+	var time;
+	if (stop.departureTime.isValid()) {
+		time = stop.departureTime;
+	} else if (stop.arrivalTime.isValid()) {
+		time = stop.arrivalTime;
+	} else {
 		return '';
 	}
 	return `(${time.format('hh:mm')} - ${moment.duration(time.diff(moment())).format("m [min] s [sec]")})`;
