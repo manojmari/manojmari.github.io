@@ -1,7 +1,7 @@
 
 async function getPredictionsByStop(route, direction, stop) {
 	return new Promise(function(resolve, reject) {
-		$.get(getUrlWithKey(`https://api-v3.mbta.com/predictions?page%5Blimit%5D=10&sort=departure_time&filter%5Bdirection_id%5D=${direction}&filter%5Bstop%5D=${stop}&filter%5Broute%5D=${route}`), (data) => {
+		$.get(getUrlWithKey(`https://api-v3.mbta.com/predictions?page%5Blimit%5D=25&sort=departure_time&filter%5Bdirection_id%5D=${direction}&filter%5Bstop%5D=${stop}&filter%5Broute%5D=${route}`), (data) => {
 			resolve(data);
 		});
 	});

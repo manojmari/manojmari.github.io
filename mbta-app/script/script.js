@@ -202,6 +202,8 @@ async function buildSchedules(arrStopRoutes) {
 		localTripMatrix = newTripMatrix;
 	});
 
+	localTripMatrix = _.sortBy(localTripMatrix, (arrTripRoutes) => getTotalTripDuration(arrTripRoutes));
+
 	if (global.savedPath) {
 		global.savedPath = await Promise.all(_.map(global.savedPath, async function(eachPath) {
 			const {tripId, direction, route} = eachPath;
@@ -357,12 +359,16 @@ function getWaitingTime(prevTripRoute, tripRoute) {
 }
 
 function getTotalTripTime(arrTripRoutes) {
+	
+	return getTotalTripDuration(arrTripRoutes).format("m [min] s [sec]");
+}
+
+function getTotalTripDuration(arrTripRoutes) {
 	let firstTime = _.chain(arrTripRoutes).find(tripRoute => tripRoute.trip != 0)
 			.get('trip').first().get('departureTime').value();
 	let lastTime = _.chain(arrTripRoutes).findLast(tripRoute => tripRoute.trip != 0)
 			.get('trip').last().get('arrivalTime').value();
-
-	return moment.duration(lastTime.diff(firstTime)).format("m [min] s [sec]");
+	return moment.duration(lastTime.diff(firstTime));
 }
 
 function removePreceedingStops(stops, commonStops) {
