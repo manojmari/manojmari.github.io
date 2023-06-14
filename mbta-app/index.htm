@@ -12,10 +12,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/x-icon" href="images/mbta-app.png">
 		<link rel="canonical" href="https://manojmari.github.io/mbta-app/" />
-		<link rel="manifest" href="mbta-app/manifest.webmanifest">
+		<link rel="manifest" href="/mbta-app/manifest.webmanifest">
 	</head>
 	<body onload="bodyLoaded()">
 		<h1>By-The-Way</h1>
+		<script>
+			if (navigator.serviceWorker) {
+				navigator.serviceWorker.register (
+					'/mbta-app/script/sw.js',
+					{scope: '/mbta-app/'}
+				)
+			}
+		</script>
 		<div id="routes">
 			<h2>Saved Path</h2>
 			<div class="button-container">
