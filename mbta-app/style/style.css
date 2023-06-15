@@ -71,6 +71,7 @@ button {
 .button-selected {
 	background-color: ghostwhite;
     color: black;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5), inset 5px 5px 8px rgba(0,0,0,0.5);
 }
 
 .button-container {
@@ -98,4 +99,59 @@ button {
 
 .station-of-interest {
 	background-color: darkcyan;
+}
+
+.schedule-tabs {
+	bottom: 0px;
+    position: fixed;
+    width: 100%;
+}
+
+.schedule-button, .add-schedule {
+    background-color: mediumvioletred;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+    display: inline-block;
+    color: ivory;
+    float: right;
+    margin-right: 10px;
+}
+
+.schedule-selected {
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5), inset 5px 5px 8px rgba(0,0,0,0.5);
+}
+
+#routes {
+	padding-bottom: 50px;
+}
+
+.schedules {
+	float: right;
+}
+
+#schedule-editor-container {
+	display: none;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: black;
+}
+
+#schedule-editor-container button {
+	background-color: ivory;
+    color: black;
+}
+
+.schedule-editor {
+	background-color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+}
+
+#editor-schedules, #all-cached-stops {
+    height: 300px;
+    background-color: white;
+    margin: 15px;
+    overflow: scroll;
 }

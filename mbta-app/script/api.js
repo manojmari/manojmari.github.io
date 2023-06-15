@@ -53,7 +53,9 @@ async function getStopById(stopId) {
 		$.get(getUrlWithKey(`https://api-v3.mbta.com/stops/${stopId}`), (data) => {
 			resolve({
 				id: stopId,
-				name: _.get(data, 'data.attributes.name')
+				name: _.get(data, 'data.attributes.name'),
+				latitude: _.get(data, 'data.attributes.latitude'),
+				longitude: _.get(data, 'data.attributes.longitude')
 			});
 		});
 	});

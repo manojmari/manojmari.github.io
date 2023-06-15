@@ -5,40 +5,38 @@ const REDSTONE = '132';
 const ORANGE = 'Orange';
 const RED = 'Red';
 
-const schedule = [
-	{
-		start: '15992',
-		last: 'place-sstat',
-		path: [
-			{routeId: RED, direction: OUTBOUND},
-			{routeId: ORANGE, direction: OUTBOUND},
-			{routeId: REDSTONE, direction: INBOUND}
-		]
-	},
-	{
-		start: 'place-sstat',
-		last: '25986',
-		path: [
-			{routeId: REDSTONE, direction: OUTBOUND},
-			{routeId: ORANGE, direction: INBOUND},
-			{routeId: RED, direction: INBOUND}
-		]
-	}
-];
+const DEFAULT_SCHEDULES = [
+		{
+			name: 'Morning',
+			start: '15992',
+			last: 'place-sstat',
+			path: [
+				{routeId: '132', direction: '1'},
+				{routeId: 'Orange', direction: '0'},
+				{routeId: 'Red', direction: '0'}
+			]
+		},
+		{
+			name: 'Evening',
+			start: 'place-sstat',
+			last: '25986',
+			path: [
+				{routeId: 'Red', direction: '1'},
+				{routeId: 'Orange', direction: '1'},
+				{routeId: '132', direction: '0'}
+			]
+		}
+	];
 
 let global = {
 	apiKey: 'b5fbff97f63a4cd885840a66abff73bc',
 	stopMap: {},
+	stopsByRouteMap: {},
 	expanded: false,
-	endToEnd: true
+	endToEnd: true,
+	currentSchedule: 1,
+	schedules: DEFAULT_SCHEDULES
 };
-
-function changeSchedule(index) {
-	global.overallTrip = schedule[index];
-	$('.schedule-button').removeClass('button-selected');
-	$(`.schedule-button-${index}`).addClass('button-selected');
-	loadCommute();
-}
 
 function toggleExpand() {
 	global.expanded = !global.expanded;
@@ -63,34 +61,60 @@ function toggleEndToEnd() {
 }
 
 function storeGlobal() {
-	if (global.savedPath)
+	if (global.savedPath) {
 		localStorage.setItem('global.savedPath', JSON.stringify(global.savedPath));
-	else
+	}
+	else {
 		localStorage.removeItem('global.savedPath');
+	}
+
+	if (global.currentSchedule != undefined) {
+		localStorage.setItem('global.currentSchedule', global.currentSchedule);
+	}
+	else {
+		localStorage.removeItem('global.currentSchedule');
+	}
+
+	if (global.schedules != undefined) {
+		localStorage.setItem('global.schedules', JSON.stringify(global.schedules));
+	}
+	else {
+		localStorage.removeItem('global.schedules');
+	}
 }
 
 function retrieveGlobal() {
-	var retrievedGlobal = localStorage.getItem('global.savedPath');
-	if (retrievedGlobal) {
-		global.savedPath = _.map(JSON.parse(retrievedGlobal), (tripRoute) => ({...tripRoute, trip: []}));
+	var retrievedSavedPath = localStorage.getItem('global.savedPath');
+	if (retrievedSavedPath) {
+		global.savedPath = _.map(JSON.parse(retrievedSavedPath), (tripRoute) => ({...tripRoute, trip: []}));
+	}
+	var retrievedCurrentSchedule = localStorage.getItem('global.currentSchedule');
+	if (retrievedCurrentSchedule) {
+		global.currentSchedule = retrievedCurrentSchedule;
+	}
+	var retrievedSchedules = localStorage.getItem('global.schedules');
+	if (retrievedSchedules) {
+		global.schedules = JSON.parse(retrievedSchedules);
 	}
 }
 
 async function bodyLoaded() {
 	retrieveGlobal();
-	changeSchedule(1);
+	changeSchedule(global.currentSchedule);
 	setInterval(loadCommute, 10000);
 	setInterval(loadHtml, 500);
 }
 
 async function loadCommute() {
 	const arrStopRoutes = [];
-	const { overallTrip } = global;
+	const { currentSchedule, schedules } = global;
+	const overallTrip = schedules[currentSchedule];
+	const path = _.reverse(_.clone(overallTrip.path));
 
-	for (let i = 0; i < overallTrip.path.length; i++) {
-		const routeDirectionConfig = overallTrip.path[i];
+	for (let i = 0; i < path.length; i++) {
+		const routeDirectionConfig = path[i];
 		const route = await getRoute(routeDirectionConfig.routeId);
-		let stops = await getStops(routeDirectionConfig.routeId, routeDirectionConfig.direction);
+		let stops = await getCachedStopsByRoute(routeDirectionConfig.routeId, routeDirectionConfig.direction);
 		if (i == 0) {
 			stops = removeTrailingStops(stops, [{id: overallTrip.last}]);
 		}
@@ -101,7 +125,7 @@ async function loadCommute() {
 			stops = removeTrailingStops(stops, commonStops);
 		}
 
-		if (i == overallTrip.path.length - 1) {
+		if (i == path.length - 1) {
 			stops = removePreceedingStops(stops, [{id: overallTrip.start}]);
 		}
 
@@ -231,7 +255,17 @@ async function getStopData(stopId) {
 	return global.stopMap[stopId];
 }
 
+async function getCachedStopsByRoute(routeId, direction) {
+	const routeDirection = `${routeId}:${direction}`;
+	if (!global.stopsByRouteMap[routeDirection]) {
+		global.stopsByRouteMap[routeDirection] = await getStops(routeId, direction);
+	}
+
+	return global.stopsByRouteMap[routeDirection];
+}
+
 function loadHtml() {
+	loadScheduleBar();
 	storeGlobal();
 	if (!global.tripMatrix) {
 		return;
@@ -368,6 +402,9 @@ function getTotalTripDuration(arrTripRoutes) {
 			.get('trip').first().get('departureTime').value();
 	let lastTime = _.chain(arrTripRoutes).findLast(tripRoute => tripRoute.trip != 0)
 			.get('trip').last().get('arrivalTime').value();
+	if (!lastTime) {
+		return moment.duration(0);
+	}
 	return moment.duration(lastTime.diff(firstTime));
 }
 
