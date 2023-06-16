@@ -7,6 +7,7 @@ function changeSchedule(index) {
 }
 
 function openScheduleEditor() {
+	global.editSchedules = _.cloneDeep(global.schedules);
 	loadScheduleEditor();
 	$('#main-container').hide();
 	$('#schedule-editor-container').show();
@@ -19,8 +20,13 @@ function closeScheduleEditor() {
 
 function saveSchedule() {
 	try {
-		const schedules = JSON.parse($('#editor-schedules').text());
+		const schedules = $('#editor-schedules')
+			.find('.pre-schedule')
+			.map(
+				(inx, schedule) => JSON.parse($(schedule).text())
+			).get();
 		global.schedules = schedules;
+		global.currentSchedule = 0;
 		closeScheduleEditor();
 	} catch (error) {
 		alert('Invalid format');
@@ -48,19 +54,41 @@ function loadScheduleBar() {
 }
 
 function loadScheduleEditor() {
-	$('#editor-schedules').text(JSON.stringify(global.schedules, null, 2));
+	$('#editor-schedules').html("");
+	_.each(global.editSchedules, (schedule, inx) => {
+		$('#editor-schedules').append(`
+			<pre id="pre-schedule-${inx}" class="pre-schedule" contenteditable="true">${JSON.stringify(schedule, null, 2)}</pre>
+			<div class="button-container">
+				<button onclick="showStops(${inx})">Show Stops</button>
+				<button class="button-delete" onclick="removeStop(${inx})">Remove</button>
+			</div>
+		`);
+	});
 }
 
-async function showStops() {
-	try {
-		const schedules = JSON.parse($('#editor-schedules').text());
-		for (let i = 0; i < schedules.length; i++) {
-			for (let j = 0; j <schedules[i].path.length; j++) {
-				await getCachedStopsByRoute(schedules[i].path[j].routeId, schedules[i].path[j].direction);
-			}
-		}
+function addNewStop() {
+	global.editSchedules.push(DEFAULT_SCHEDULE);
+	loadScheduleEditor();
+}
 
-		$('#all-cached-stops').text(JSON.stringify(global.stopsByRouteMap, null, 2))
+function removeStop(inx) {
+	global.editSchedules.splice(inx, 1);
+	loadScheduleEditor();
+}
+
+async function showStops(inx) {
+	try {
+		const schedule = JSON.parse($(`#pre-schedule-${inx}`).text());
+		const stopsByRouteMap = {};
+		for (let j = 0; j < schedule.path.length; j++) {
+			var routeId = schedule.path[j].routeId;
+			var direction = schedule.path[j].direction;
+			stopsByRouteMap[`${routeId}:${direction}`] = _.chain(await getCachedStopsByRoute(routeId, direction))
+				.cloneDeep()
+				.map(val => _.pick(val, ['id', 'name']))
+				.value();
+		}
+		$('#all-cached-stops').text(JSON.stringify(stopsByRouteMap, null, 2))
 	} catch (error) {
 		alert('Invalid format');
 	}

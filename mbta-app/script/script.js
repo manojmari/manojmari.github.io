@@ -5,6 +5,17 @@ const REDSTONE = '132';
 const ORANGE = 'Orange';
 const RED = 'Red';
 
+const DEFAULT_SCHEDULE = {
+	name: 'New Schedule',
+	start: 'place-sstat',
+	last: '25986',
+	path: [
+		{routeId: 'Red', direction: '1'},
+		{routeId: 'Orange', direction: '1'},
+		{routeId: '132', direction: '0'}
+	]
+};
+
 const DEFAULT_SCHEDULES = [
 		{
 			name: 'Morning',
@@ -34,7 +45,7 @@ let global = {
 	stopsByRouteMap: {},
 	expanded: false,
 	endToEnd: true,
-	currentSchedule: 1,
+	currentSchedule: 0,
 	schedules: DEFAULT_SCHEDULES
 };
 
@@ -229,18 +240,29 @@ async function buildSchedules(arrStopRoutes) {
 	localTripMatrix = _.sortBy(localTripMatrix, (arrTripRoutes) => getTotalTripDuration(arrTripRoutes));
 
 	if (global.savedPath) {
-		global.savedPath = await Promise.all(_.map(global.savedPath, async function(eachPath) {
+		const savedPath = await Promise.all(_.map(global.savedPath, async function(eachPath) {
 			const {tripId, direction, route} = eachPath;
 			const predictionByTrip = await getPredictionsByTrip(route, direction, tripId);
 			const trip = await Promise.all(_.map(predictionByTrip.trip, async function(tripStop) {
-				const stop = await getStopData(tripStop.stop);
+				let stop = await getStopData(tripStop.stop);
 				return {...stop, ...tripStop};
 			}));
+
 			return {
 				...eachPath,
 				trip
 			}
 		}));
+
+		for (let i = 0; i < savedPath.length; i++) {
+			if (i != 0) {
+				const commonStops = findCommonStop(savedPath[i].trip, savedPath[i - 1].trip);
+				savedPath[i - 1].trip= removeTrailingStops(savedPath[i - 1].trip, commonStops);
+				savedPath[i].trip = removePreceedingStops(savedPath[i].trip, commonStops);
+			}
+		}
+
+		global.savedPath = savedPath;
 	}
 
 
@@ -297,7 +319,11 @@ function loadHtml() {
 	}
 
 	const savedRowContent = _.map(global.savedPath, (tripRoute, index) => {
-		return buildCell(tripRoute.trip, tripRoute.route, true);
+		var waitingTime = '';
+		if (index != 0) {
+			waitingTime = getWaitingTime(global.savedPath[index - 1], tripRoute);
+		}
+		return waitingTime + buildCell(tripRoute.trip, tripRoute.route, true);
 	}).join("");
 
 	$("#saved-route-table").html(`<div class='row'>${savedRowContent}</div>`);
@@ -307,7 +333,7 @@ function findCommonStop(stops1, stops2) {
 	let index1 = -1, index2 = -1;
 	_.each(stops2, (entry2, inx) => {
 		index1 = _.findIndex(stops1,
-			(entry1) => entry1.id == entry2.id || calcCrow(entry1.latitude, entry1.longitude, entry2.latitude, entry2.longitude) < 0.05);
+			(entry1) => entry1.id == entry2.id || calcCrow(entry1.latitude, entry1.longitude, entry2.latitude, entry2.longitude) < 0.1);
 		if (index1 != -1) {
 			index2 = inx;
 			return false;
@@ -341,7 +367,7 @@ function toRad(Value) {
 
 function buildCell(stops, route, expanded) {
 	let cellHtml;
-	stops = _.filter(stops, (stop) => !stop.departureTime.isValid() || stop.departureTime.isAfter(moment()));
+	stops = _.filter(stops, (stop) => !stop.departureTime || !stop.departureTime.isValid() || stop.departureTime.isAfter(moment()));
 	if (stops.length == 0) {
 		cellHtml = "<span class='no-connections'>No connections</span>";
 	} else {
@@ -371,9 +397,9 @@ function buildStopHtml(stop) {
 
 function getRemainingDuration(stop) {
 	var time;
-	if (stop.departureTime.isValid()) {
+	if (stop.departureTime && stop.departureTime.isValid()) {
 		time = stop.departureTime;
-	} else if (stop.arrivalTime.isValid()) {
+	} else if (stop.arrivalTime && stop.arrivalTime.isValid()) {
 		time = stop.arrivalTime;
 	} else {
 		return '';
