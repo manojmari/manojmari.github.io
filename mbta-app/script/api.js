@@ -61,6 +61,21 @@ async function getStopById(stopId) {
 	});
 }
 
+async function getAllRoutes() {
+	return new Promise(function(resolve, reject) {
+		$.get(getUrlWithKey(`https://api-v3.mbta.com/routes`), (data) => {
+			resolve(_.reduce(data.data, (acc, record) => {
+				const fareClass = _.get(record, `attributes.fare_class`);
+				const id = _.get(record, 'id');
+
+				acc[fareClass] = acc[fareClass] ? acc[fareClass] : [];
+				acc[fareClass].push(id);
+				return acc;
+			}, {}));
+		});
+	});
+}
+
 async function getStops(route, direction) {
 	return new Promise(function(resolve, reject) {
 		$.get(getUrlWithKey(`https://api-v3.mbta.com/stops?filter%5Bdirection_id%5D=${direction}&filter%5Broute%5D=${route}`), (data) => {

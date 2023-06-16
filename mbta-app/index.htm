@@ -17,7 +17,7 @@
 	</head>
 	<body onload="bodyLoaded()">
 		<div id="main-container">
-			<h1>By-The-Way</h1>
+			<h1><img id="logo" src="images/mbta-app.png" />By-The-Way</h1>
 			<script>
 				if (navigator.serviceWorker) {
 					navigator.serviceWorker.register (
@@ -67,6 +67,7 @@
 			</div>
 			<div class="button-container">
 				<button class="add-new-schedule" onclick="addNewStop()">Add Schedule</button>
+				<button class="" onclick="showRoutes()">Show All Routes</button>
 			</div>
 			<pre id="all-cached-stops">
 			</pre>

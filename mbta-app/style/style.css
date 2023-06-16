@@ -47,7 +47,7 @@ table tr td {
 
 h1 {
     text-align: center;
-    background-color: mediumvioletred;
+    background-color: #9b1c81;
     border-radius: 9px;
     color: ivory;
     font-family: monospace;
@@ -127,7 +127,7 @@ button {
 }
 
 .schedule-button, .add-schedule {
-    background-color: mediumvioletred;
+    background-color: #9b1c81;
     padding: 10px;
     border-radius: 10px 10px 0px 0px;
     display: inline-block;
@@ -179,14 +179,19 @@ button {
 }
 
 #editor-schedules .pre-schedule {
-    overflow: auto;
     height: 200px;
 }
 
 .pre-schedule, #all-cached-stops {
     background-color: white;
+    overflow: auto;
 }
 
 #saved-route-table {
 	border: 1px solid black;
+}
+
+#logo {
+	height: 30px;
+    margin-bottom: -5px;
 }

@@ -93,3 +93,7 @@ async function showStops(inx) {
 		alert('Invalid format');
 	}
 }
+
+async function showRoutes() {
+	$('#all-cached-stops').text(JSON.stringify(await getAllRoutes(), null, 2))
+}
