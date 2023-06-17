@@ -69,7 +69,6 @@ function loadScheduleEditor() {
 }
 
 function moveSchedule(index, diff) {
-	console.log(index, diff);
 	const temp = global.editSchedules[index + diff];
 	global.editSchedules[index + diff] = global.editSchedules[index];
 	global.editSchedules[index] = temp;

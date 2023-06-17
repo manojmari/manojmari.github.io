@@ -4,7 +4,7 @@ body {
     padding-right: max(5px, env(safe-area-inset-right));
 	padding-top: max(5px, env(safe-area-inset-top));
     padding-bottom: max(5px, env(safe-area-inset-bottom));
-    font-size: 3vh;
+    font-size: 2vh;
     font-family: monospace;
 }
 
