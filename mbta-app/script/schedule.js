@@ -59,11 +59,21 @@ function loadScheduleEditor() {
 		$('#editor-schedules').append(`
 			<pre id="pre-schedule-${inx}" class="pre-schedule" contenteditable="true">${JSON.stringify(schedule, null, 2)}</pre>
 			<div class="button-container">
+				<button ${inx == 0 ? 'disabled' : ''} class="" onclick="moveSchedule(${inx}, -1)">&#8593;</button>
+				<button ${inx == global.editSchedules.length - 1 ? 'disabled' : ''} class="" onclick="moveSchedule(${inx}, 1)">&#8595;</button>
 				<button onclick="showStops(${inx})">Show Stops</button>
 				<button class="button-delete" onclick="removeStop(${inx})">Remove</button>
 			</div>
 		`);
 	});
+}
+
+function moveSchedule(index, diff) {
+	console.log(index, diff);
+	const temp = global.editSchedules[index + diff];
+	global.editSchedules[index + diff] = global.editSchedules[index];
+	global.editSchedules[index] = temp;
+	loadScheduleEditor();
 }
 
 function addNewStop() {

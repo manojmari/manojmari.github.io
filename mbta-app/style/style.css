@@ -1,6 +1,26 @@
 body {
 	margin: 0px;
-	padding: 5px;
+	padding-left: max(5px, env(safe-area-inset-left));
+    padding-right: max(5px, env(safe-area-inset-right));
+	padding-top: max(5px, env(safe-area-inset-top));
+    padding-bottom: max(5px, env(safe-area-inset-bottom));
+    font-size: 3vh;
+    font-family: monospace;
+}
+
+.schedule-tabs {
+    position: fixed;
+    display: flex;
+    height: 44px;
+    overflow-x: auto;
+    left: 0px;
+    right: 0px;
+    padding-top: 10px;
+    padding-left: max(5px, env(safe-area-inset-left));
+    padding-right: max(5px, env(safe-area-inset-right));
+    padding-bottom: max(5px, env(safe-area-inset-bottom));
+    background-color: gainsboro;
+    bottom: 0px;
 }
 
 table {
@@ -48,9 +68,10 @@ table tr td {
 h1 {
     text-align: center;
     background-color: #9b1c81;
-    border-radius: 9px;
+    border-radius: 4px;
     color: ivory;
     font-family: monospace;
+    margin: 5px;
 }
 
 h2 {
@@ -60,6 +81,7 @@ h2 {
     color: black;
     font-size: 20px;
     padding: 8px;
+    margin: 10px;
 }
 
 h3 {
@@ -115,17 +137,6 @@ button {
 	background-color: darkcyan;
 }
 
-.schedule-tabs {
-	bottom: 0px;
-    position: fixed;
-    width: 100%;
-    display: flex;
-    height: 44px;
-    overflow-x: auto;
-    padding-top: 10px;
-    background-color: white;
-}
-
 .schedule-button, .add-schedule {
     background-color: #9b1c81;
     padding: 10px;
@@ -145,8 +156,11 @@ button {
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5), inset 5px 5px 8px rgba(0,0,0,0.5);
 }
 
+#activity-container {
+	padding-bottom: 70px;
+}
+
 #routes {
-	padding-bottom: 50px;
 }
 
 .schedules {
@@ -164,6 +178,11 @@ button {
 #schedule-editor-container button {
 	background-color: ivory;
     color: black;
+}
+
+#schedule-editor-container button:disabled {
+	background-color: lightgray;
+    color: white;
 }
 
 .schedule-editor {

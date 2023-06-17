@@ -17,31 +17,33 @@
 	</head>
 	<body onload="bodyLoaded()">
 		<div id="main-container">
-			<h1><img id="logo" src="images/mbta-app.png" />By-The-Way</h1>
-			<script>
-				if (navigator.serviceWorker) {
-					navigator.serviceWorker.register (
-						'/mbta-app/sw.js',
-						{scope: '/mbta-app/'}
-					)
-				}
-			</script>
-			<div id="routes">
-				<h2>Saved Path</h2>
-				<div class="button-container">
-					<button class="" onclick="clearSaved()">Clear</button>
-				</div>
-				<div class="division-small"></div>
-				<div id="saved-route-table">
-				</div>
+			<div id="activity-container">
+				<h1><img id="logo" src="images/mbta-app.png" />By-The-Way</h1>
+				<script>
+					if (navigator.serviceWorker) {
+						navigator.serviceWorker.register (
+							'/mbta-app/sw.js',
+							{scope: '/mbta-app/'}
+						)
+					}
+				</script>
+				<div id="routes">
+					<h2>Saved Path</h2>
+					<div class="button-container">
+						<button class="" onclick="clearSaved()">Clear</button>
+					</div>
+					<div class="division-small"></div>
+					<div id="saved-route-table">
+					</div>
 
-				<h2>All upcoming schedules</h2>
-				<div class="button-container">
-					<button class="e2e-toggle button-selected" onclick="toggleEndToEnd()">End-to-End</button>
-					<button class="expand-toggle" onclick="toggleExpand()">Expand Stops</button>
-				</div>
-				<div class="division-small"></div>
-				<div id="routes-table">
+					<h2>Schedules</h2>
+					<div class="button-container">
+						<button class="e2e-toggle button-selected" onclick="toggleEndToEnd()">End-to-End</button>
+						<button class="expand-toggle" onclick="toggleExpand()">Expand Stops</button>
+					</div>
+					<div class="division-small"></div>
+					<div id="routes-table">
+					</div>
 				</div>
 			</div>
 			<div class="schedule-tabs">

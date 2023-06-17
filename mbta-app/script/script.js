@@ -6,35 +6,24 @@ const ORANGE = 'Orange';
 const RED = 'Red';
 
 const DEFAULT_SCHEDULE = {
-	name: 'New Schedule',
-	start: 'place-sstat',
-	last: '25986',
+	name: 'Kendal to Malden',
+	start: 'place-knncl',
+	last: 'place-mlmnl',
 	path: [
-		{routeId: 'Red', direction: '1'},
-		{routeId: 'Orange', direction: '1'},
-		{routeId: '132', direction: '0'}
+		{routeId: 'Red', direction: '0'},
+		{routeId: 'Orange', direction: '1'}
 	]
 };
 
 const DEFAULT_SCHEDULES = [
-		{
-			name: 'Morning',
-			start: '15992',
-			last: 'place-sstat',
-			path: [
-				{routeId: '132', direction: '1'},
-				{routeId: 'Orange', direction: '0'},
-				{routeId: 'Red', direction: '0'}
-			]
-		},
+		DEFAULT_SCHEDULE,
 		{
 			name: 'Evening',
-			start: 'place-sstat',
-			last: '25986',
+			start: 'place-mlmnl',
+			last: 'place-knncl',
 			path: [
-				{routeId: 'Red', direction: '1'},
-				{routeId: 'Orange', direction: '1'},
-				{routeId: '132', direction: '0'}
+				{routeId: 'Orange', direction: '0'},
+				{routeId: 'Red', direction: '1'}
 			]
 		}
 	];
@@ -306,7 +295,7 @@ function loadHtml() {
 		}).join("");
 
 		return `<div class='row'><div class='cell path-title' colspan='${arrTripRoutes.length * 2 - 1}'>
-			<button onclick='savePath(${index})'>Save Path</button>
+			<button onclick='savePath(${index})'>Save</button>
 			Total trip time: ${getTotalTripTime(arrTripRoutes)}</div>
 		</div><div class='row'>${rowContent}</div>`
 	}).compact().join("<div class='division'></div>").value();
