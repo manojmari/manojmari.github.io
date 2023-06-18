@@ -8,6 +8,10 @@ body {
     font-family: monospace;
 }
 
+html {
+	overflow: hidden;
+}
+
 .schedule-tabs {
     position: fixed;
     display: flex;
@@ -191,6 +195,7 @@ button {
     width: 100%;
     position: absolute;
     background-color: black;
+    overflow: auto
 }
 
 #schedule-editor-container button {
@@ -212,7 +217,6 @@ button {
 
 #editor-schedules {
     margin: 15px;
-    overflow: scroll;
 }
 
 .editor-schedule-row {
