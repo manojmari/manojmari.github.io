@@ -296,7 +296,11 @@ function loadHtml() {
 
 		return `<div class='row'><div class='cell path-title' colspan='${arrTripRoutes.length * 2 - 1}'>
 			<button onclick='savePath(${index})'>Save</button>
-			Total trip time: ${getTotalTripTime(arrTripRoutes)}</div>
+			<div class="trip-time">
+				<span>Total trip time: ${getTotalTripTime(arrTripRoutes)}</span>
+				<span>Arrive by: ${getReachByTime(arrTripRoutes)}</span>
+			</div>
+			</div>
 		</div><div class='row'>${rowContent}</div>`
 	}).compact().join("<div class='division'></div>").value();
 
@@ -380,20 +384,20 @@ function buildStopHtml(stop) {
 	return `<div class="target-station">
 		<span class="target"></span>
 		<span class="station-name">${stop.name}</span>
-		<span class="time-remaining">${getRemainingDuration(stop)}</span>
+		<span class="time-remaining">(${getRemainingDuration(stop)})</span>
 	</div>`;
 }
 
-function getRemainingDuration(stop) {
+function getRemainingDuration(stop, onlyArrival) {
 	var time;
-	if (stop.departureTime && stop.departureTime.isValid()) {
+	if (!onlyArrival && stop.departureTime && stop.departureTime.isValid()) {
 		time = stop.departureTime;
 	} else if (stop.arrivalTime && stop.arrivalTime.isValid()) {
 		time = stop.arrivalTime;
 	} else {
 		return '';
 	}
-	return `(${time.format('hh:mm')} - ${moment.duration(time.diff(moment())).format("m [min] s [sec]")})`;
+	return `${time.format('hh:mm')} - ${moment.duration(time.diff(moment())).format("m [min] s [sec]")}`;
 }
 
 function getWaitingTime(prevTripRoute, tripRoute) {
@@ -407,8 +411,17 @@ function getWaitingTime(prevTripRoute, tripRoute) {
 	return `<div class='cell'><span>wait ${moment.duration(tripDepartureTime.diff(prevTripArrivalTime)).format("m [min] s [sec]")}</span></div>`;
 }
 
+function getReachByTime(arrTripRoutes) {
+	const lastStop = _.chain(arrTripRoutes)
+		.findLast(tripRoute => tripRoute.trip != 0)
+		.get('trip')
+		.last()
+		.value();
+
+	return getRemainingDuration(lastStop, true);
+}
+
 function getTotalTripTime(arrTripRoutes) {
-	
 	return getTotalTripDuration(arrTripRoutes).format("m [min] s [sec]");
 }
 

@@ -125,6 +125,24 @@ button {
     padding: 2px;
 }
 
+.path-title span {
+    text-wrap: nowrap;
+}
+
+.trip-time {
+	text-align: left;
+    width: min-content;
+    display: inline-block;
+    background-color: gainsboro;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.path-title button {
+    vertical-align: super;
+}
+
 .division {
 	height: 55px;
 }
@@ -171,7 +189,7 @@ button {
 	display: none;
     height: 100%;
     width: 100%;
-    position: relative;
+    position: absolute;
     background-color: black;
 }
 
@@ -197,13 +215,34 @@ button {
     overflow: scroll;
 }
 
+.editor-schedule-row {
+    border: 1px solid white;
+    padding-bottom: 15px;
+    border-radius: 18px;
+    margin-bottom: 5px;
+    padding: 6px;
+}
+
+.row-number {
+    background-color: lightslategrey;
+    padding: 10px;
+    border-radius: 21px;
+}
+
 #editor-schedules .pre-schedule {
     height: 200px;
+    margin: 10px;
 }
 
 .pre-schedule, #all-cached-stops {
     background-color: white;
     overflow: auto;
+    padding: 10px;
+}
+
+#all-cached-stops {
+    margin: 16px;
+    background-color: gainsboro;
 }
 
 #saved-route-table {

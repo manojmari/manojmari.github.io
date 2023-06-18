@@ -34,13 +34,13 @@ function saveSchedule() {
 }
 
 function resetSchedule() {
-	try {
-		const schedules = DEFAULT_SCHEDULES;
-		global.schedules = schedules;
-		closeScheduleEditor();
-	} catch (error) {
-		alert('Invalid format');
+	if (!confirm("Are you sure you want to reset the schedules?")) {
+		return;
 	}
+	const schedules = DEFAULT_SCHEDULES;
+	global.schedules = schedules;
+	global.currentSchedule = 0;
+	closeScheduleEditor();
 }
 
 function loadScheduleBar() {
@@ -56,15 +56,16 @@ function loadScheduleBar() {
 function loadScheduleEditor() {
 	$('#editor-schedules').html("");
 	_.each(global.editSchedules, (schedule, inx) => {
-		$('#editor-schedules').append(`
+		$('#editor-schedules').append(`<div class="editor-schedule-row">
 			<pre id="pre-schedule-${inx}" class="pre-schedule" contenteditable="true">${JSON.stringify(schedule, null, 2)}</pre>
 			<div class="button-container">
+				<span class="row-number">${inx}</span>
 				<button ${inx == 0 ? 'disabled' : ''} class="" onclick="moveSchedule(${inx}, -1)">&#8593;</button>
 				<button ${inx == global.editSchedules.length - 1 ? 'disabled' : ''} class="" onclick="moveSchedule(${inx}, 1)">&#8595;</button>
 				<button onclick="showStops(${inx})">Show Stops</button>
 				<button class="button-delete" onclick="removeStop(${inx})">Remove</button>
 			</div>
-		`);
+		</div>`);
 	});
 }
 
@@ -81,6 +82,9 @@ function addNewStop() {
 }
 
 function removeStop(inx) {
+	if (!confirm(`Delete "${global.editSchedules[inx].name}"?`)) {
+		return;
+	}
 	global.editSchedules.splice(inx, 1);
 	loadScheduleEditor();
 }
@@ -97,12 +101,17 @@ async function showStops(inx) {
 				.map(val => _.pick(val, ['id', 'name']))
 				.value();
 		}
-		$('#all-cached-stops').text(JSON.stringify(stopsByRouteMap, null, 2))
+		loadContentInViewer(stopsByRouteMap);
 	} catch (error) {
 		alert('Invalid format');
 	}
 }
 
 async function showRoutes() {
-	$('#all-cached-stops').text(JSON.stringify(await getAllRoutes(), null, 2))
+	loadContentInViewer(await getAllRoutes());
+}
+
+function loadContentInViewer(jsonContent) {
+	$('#all-cached-stops').text(JSON.stringify(jsonContent, null, 2));
+	$("#all-cached-stops")[0].scrollIntoView({block: "nearest", behavior: "smooth"});
 }
