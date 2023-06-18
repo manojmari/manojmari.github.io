@@ -1,11 +1,15 @@
 body {
 	margin: 0px;
-	padding-left: max(5px, env(safe-area-inset-left));
+    padding-left: max(5px, env(safe-area-inset-left));
     padding-right: max(5px, env(safe-area-inset-right));
-	padding-top: max(5px, env(safe-area-inset-top));
+    padding-top: max(5px, env(safe-area-inset-top));
     padding-bottom: max(5px, env(safe-area-inset-bottom));
     font-size: 2vh;
     font-family: monospace;
+    height: 100%;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
 }
 
 html {
