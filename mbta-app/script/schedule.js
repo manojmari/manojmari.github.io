@@ -4,6 +4,7 @@ function changeSchedule(index) {
 	$('.schedule-button').removeClass('schedule-selected');
 	$(`#schedule-button-${index}`).addClass('schedule-selected');
 	loadCommute();
+	loadScheduleBar();
 }
 
 function openScheduleEditor() {
@@ -43,7 +44,7 @@ function resetSchedule() {
 	closeScheduleEditor();
 }
 
-function loadScheduleBar() {
+function loadScheduleBar(scrollToSchedule) {
 	const scheduleButtonHtml = _.map(global.schedules, (schedule, index) => {
 		return `<div onclick="changeSchedule(${index})" id="schedule-button-${index}" 
 			class="schedule-button ${index == global.currentSchedule ? 'schedule-selected': ''}">
@@ -51,6 +52,9 @@ function loadScheduleBar() {
 		</div>`;
 	}).join('');
 	$('#schedule-button-container').html(scheduleButtonHtml);
+	if (scrollToSchedule) {
+		$(`#schedule-button-${global.currentSchedule}`)[0].scrollIntoView({inline: "center", behavior: "smooth"});
+	}
 }
 
 function loadScheduleEditor() {

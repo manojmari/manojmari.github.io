@@ -101,6 +101,7 @@ function retrieveGlobal() {
 async function bodyLoaded() {
 	retrieveGlobal();
 	changeSchedule(global.currentSchedule);
+	loadScheduleBar(true);
 	setInterval(loadCommute, 10000);
 	setInterval(loadHtml, 500);
 }
@@ -226,7 +227,10 @@ async function buildSchedules(arrStopRoutes) {
 		localTripMatrix = newTripMatrix;
 	});
 
-	localTripMatrix = _.sortBy(localTripMatrix, (arrTripRoutes) => getTotalTripDuration(arrTripRoutes));
+	localTripMatrix = _.sortBy(localTripMatrix, [
+		(arrTripRoutes) => getReachByMoment(arrTripRoutes),
+		(arrTripRoutes) => getTotalTripDuration(arrTripRoutes)
+	]);
 
 	if (global.savedPath) {
 		const savedPath = await Promise.all(_.map(global.savedPath, async function(eachPath) {
@@ -276,7 +280,6 @@ async function getCachedStopsByRoute(routeId, direction) {
 }
 
 function loadHtml() {
-	loadScheduleBar();
 	storeGlobal();
 	if (!global.tripMatrix) {
 		return;
@@ -297,8 +300,8 @@ function loadHtml() {
 		return `<div class='row'><div class='cell path-title' colspan='${arrTripRoutes.length * 2 - 1}'>
 			<button onclick='savePath(${index})'>Save</button>
 			<div class="trip-time">
-				<span>Total trip time: ${getTotalTripTime(arrTripRoutes)}</span>
 				<span>Arrive by: ${getReachByTime(arrTripRoutes)}</span>
+				<span>Total trip time: ${getTotalTripTime(arrTripRoutes)}</span>
 			</div>
 			</div>
 		</div><div class='row'>${rowContent}</div>`
@@ -381,10 +384,14 @@ function buildArrow() {
 }
 
 function buildStopHtml(stop) {
+	let remaingDurationText = getRemainingDuration(stop);
+	if (!_.isEmpty(remaingDurationText)) {
+		remaingDurationText = `(${remaingDurationText})`;
+	}
 	return `<div class="target-station">
 		<span class="target"></span>
 		<span class="station-name">${stop.name}</span>
-		<span class="time-remaining">(${getRemainingDuration(stop)})</span>
+		<span class="time-remaining">${remaingDurationText}</span>
 	</div>`;
 }
 
@@ -419,6 +426,18 @@ function getReachByTime(arrTripRoutes) {
 		.value();
 
 	return getRemainingDuration(lastStop, true);
+}
+
+function getReachByMoment(arrTripRoutes) {
+	const lastStop = _.chain(arrTripRoutes)
+		.findLast(tripRoute => tripRoute.trip != 0)
+		.get('trip')
+		.last()
+		.value();
+
+	if (lastStop.arrivalTime && lastStop.arrivalTime.isValid()) {
+		return lastStop.arrivalTime;
+	}
 }
 
 function getTotalTripTime(arrTripRoutes) {
