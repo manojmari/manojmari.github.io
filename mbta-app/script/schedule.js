@@ -29,6 +29,7 @@ function saveSchedule() {
 		global.schedules = schedules;
 		global.currentSchedule = 0;
 		closeScheduleEditor();
+		loadScheduleBar(true);
 	} catch (error) {
 		alert('Invalid format');
 	}
@@ -53,7 +54,9 @@ function loadScheduleBar(scrollToSchedule) {
 	}).join('');
 	$('#schedule-button-container').html(scheduleButtonHtml);
 	if (scrollToSchedule) {
-		$(`#schedule-button-${global.currentSchedule}`)[0].scrollIntoView({inline: "center", behavior: "smooth"});
+		setTimeout(() => {
+			$(`#schedule-button-${global.currentSchedule}`)[0].scrollIntoView({inline: "center", behavior: "smooth"});
+		}, 100);
 	}
 }
 
